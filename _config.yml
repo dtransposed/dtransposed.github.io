@@ -8,6 +8,9 @@ linkedin_username: dbogunowicz
 twitter_username: dtransposed
 github_username:  dtransposed
 
+# Disqus
+disqus:
+    shortname: dtransposed
 # Build settings
 markdown: kramdown
 permalink: pretty
