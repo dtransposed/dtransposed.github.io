@@ -1,0 +1,21 @@
+# Site settings
+title: Damian Bogunowicz - dtransposed
+email: damian.bogunowicz
+description: "Engineering, Robotics, AI, Technology"
+#baseurl: "http://dtransposed.github.io"
+url: "http://dtransposed.github.io"
+linkedin_username: dbogunowicz
+twitter_username: dtransposed
+github_username:  dtransposed
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+highlighter: rouge
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: coderay
+plugins:
+  - jekyll-katex
