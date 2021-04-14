@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Tutorial- LSTM neural network: A closer look under the hood"
 author: "Damian Bogunowicz"
 categories: blog
