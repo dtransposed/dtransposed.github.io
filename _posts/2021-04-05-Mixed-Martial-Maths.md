@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Mixed Martial Maths - Simple Reasoning Tools For Complex Phenomena"
 author: "Damian Bogunowicz"
 categories: blog
