@@ -1,6 +1,6 @@
 ---
 layout: post
-crosspost_to_medium: true
+comments: true
 title: "Research Paper Summary - What Matters In On-Policy Reinforcement Learning? A Large-Scale Empirical Study"
 author: "Damian Bogunowicz"
 categories: blog
