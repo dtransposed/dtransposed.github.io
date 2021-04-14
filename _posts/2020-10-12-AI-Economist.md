@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Research Paper Summary - The AI Economist: Improving Equality and Productivity with AI-Driven Tax Policies"
 author: "Damian Bogunowicz"
 categories: blog
