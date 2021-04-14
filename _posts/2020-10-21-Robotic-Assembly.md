@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Robotic Assembly Using Deep Reinforcement Learning"
 author: "Damian Bogunowicz"
 categories: blog
