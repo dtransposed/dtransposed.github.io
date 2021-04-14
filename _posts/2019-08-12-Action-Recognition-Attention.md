@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Tutorial - Visual Attention for Action Recognition"
 author: "Damian Bogunowicz"
 categories: blog
