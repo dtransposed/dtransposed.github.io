@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "Option Pricing - Introduction, Example and Implementation"
 author: "Damian Bogunowicz"
 categories: blog
