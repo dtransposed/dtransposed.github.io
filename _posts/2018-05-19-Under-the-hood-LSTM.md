@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Practical tutorial- LSTM neural network: A closer look under the hood"
+title: "Tutorial- LSTM neural network: A closer look under the hood"
 author: "Damian Bogunowicz"
 categories: blog
+excerpt: "The goal of this tutorial is to perform a forward pass through LSTM network using two methods. The first approach: use a model from Keras library. The second approach: implement the forward pass using only numpy library."
 tags: [deep learning, neural network, tutorial, python, programming, LSTM, recurrent neural network]
 image: underthehood.jpg
 ---
@@ -16,16 +17,6 @@ To my mind, this means that one of the best methods to comprehend a concept is t
 
 The goal of this tutorial is to perform a forward pass through LSTM network using two methods. The first approach is to use a model compiled using Keras library. The second method is to extract weights from Keras model and implement the forward pass ourselves using only numpy library. I will only scratch the surface when it comes to the theory behind LSTM networks. For people who are allergic to research papers (otherwise please refer to <em>Hochreiter, S.; Schmidhuber, J. (1997). "Long Short-Term Memory"</em>) the concept has been beautifully explained in [the blog post by Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/). I would also recommend to read a [very elegant tutorial by Aidan Gomez](https://medium.com/@aidangomez/let-s-do-this-f9b699de31d9), where the author shows a numerical example of a forward and backward pass in a LSTM network. My final implementation (code in Python) can be found at the end of this article.
 
-## Table of Contents
-
-1. Architecture and the parameters of the LSTM network
-2. Retrieving weight matrices from the Keras mode
-3. Defining a model in Keras
-4. Defining our custom-made model 
-5. Implementation)
-6. Comparison and summary
-7. The full code in Python
-
 ## Architecture and the parameters of the LSTM network
 
 Firstly, let's discuss how an input to the network looks like. A model takes a sequence of __samples__ (observations) as an input and returns a single number (result) as an output. I call one sequence of observations a __batch__. Thus, a single batch is an input sequence to the network. 
@@ -35,10 +26,9 @@ Mathematically, we may say that a batch $$x$$ is a vector $$x\in \Bbb{R}^{timest
 
 According to the  [classification done by Andrej Karpathy](http://karpathy.github.io/2015/05/21/rnn-effectiveness), we call such a model a <em> many-to-one model </em>. Let's say that that our timesteps parameter equals 3. This means that an arbitary sequence of a length three $$x=\begin{bmatrix}x_{1}\\x_{2}\\x_{3}\end{bmatrix}$$ returns a single value $$y$$ as shown below:
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/3/Figure_2.png "Example"){:height="50%" width="50%"}
-{: refdef}
-<em>Figure 1: Our example of many-to-one LSTM implementation </em>
+<div class="imgcap">
+<img src="/assets/3/Figure_2.png" width="40%">
+<div class="thecap">Our example of many-to-one LSTM implementation</div></div>
 
 Finally, we define usual neural network parameters such as the number of LSTM layers and amount of hidden units in every layer. Our parameters are set to:
 - <em>timesteps = 20 </em>        
@@ -48,14 +38,12 @@ Finally, we define usual neural network parameters such as the number of LSTM la
 
 For simplification we assume that every LSTM layer has the same number of hidden units. Many-to-one model requires, that after passing through all LSTM layers the intermediate result is finally processed by a single dense layer, which returns the final value $$y$$. That implies that our neural network has the following architecture:
 
-Layer (type)       | Output Shape   | Param #              | 
---------------------- | :-------------------: | :-------------------- :| 
-lstm_1 (LSTM)   |(None, 20, 10)            | 480      | 
-lstm_2 (LSTM) | (None, 20, 10) | 840 | 
-lstm_3 (LSTM)| (None, 10)| 840 | 
-dense_1 (Dense)  | (None, 1) | 11 | 
-
-<em>Figure 2: Model used in our example </em>
+Layer (type)       | Output Shape   | Param #              
+:-------------------: | :-------------------: | :-------------------- :
+lstm_1 (LSTM)   |(None, 20, 10)            | 480      
+lstm_2 (LSTM) | (None, 20, 10) | 840 
+lstm_3 (LSTM)| (None, 10)| 840 
+dense_1 (Dense)  | (None, 1) | 11 
 
 By the way, we can directly see that the shape of the array which is being propagated during the foreward pass in LSTM layers depends on the parameters (<em>no_of_units</em> and <em>timesteps</em>).
 
@@ -106,7 +94,7 @@ class LSTM_Keras(object):
         self.model = model
 ```
 
-The object of the class <em>LSTM_Keras</em> returns a model of a neural network. We need this element to:
+The object of the class `LSTM_Keras` returns a model of a neural network. We need this element to:
 - obtain weights for our custom-made model.
 - compare results between Keras implementation and our custom-made implementation.
 
@@ -176,7 +164,7 @@ The thing which surprised me while I was reading the Keras source code, is that 
 Additional methods of the class allow us to:
 - reset state of a layer.
 - implement the dense layer, which returns a final output.
- 
+
 
 ## Implementation 
 
@@ -216,12 +204,11 @@ for batch in range(input_to_keras.shape[0]):
 Having defined all the helper functions and classes, we can finally implement our custom-made LSTM (main part of the code).
 
 Firstly, we initialize a model in Keras. The weights are automatically created using default settings (kernel weights initialized according to Xavier's initialization, recurrent kernel weights initialized as a random orthogonal matrix, bias set to zero). Secondly, we create three custom-made LSTM layers. Thirdly, we create an input to the network. It is a sequence of a pre-defined size of random integers in range 0 to 100. Finally, we start a loop, which computes the result of our custom-made neural network. 
-To illustrate the flow of variables for a sample network, which takes batches of two samples, please see figure 3:
+To illustrate the flow of variables for a sample network, which takes batches of two samples, please see figure below:
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/3/Figure_1.gif "Example")
-{: refdef}
-<em>Figure 3: Variable flow through a network. Blue colour indicates internal state change of an LSTM cell</em>
+<div class="imgcap">
+<img src="/assets/3/Figure_1.gif" width="70%">
+<div class="thecap">Variable flow through a network. Blue colour indicates internal state change of an LSTM cell.</div></div>
 
 For every batch, when all samples have passed through the architecture, the last sample enters the dense layer. This results in the final output for the given batch. Additionally, the state of every LSTM layer is reset. This is to simulate what happens in Keras after each batch has been processed. By default, when defining an [LSTM layer](https://keras.io/layers/recurrent/#lstm), the argument <em>stateful= False</em>. If it were True, 
 
@@ -238,15 +225,13 @@ We run the code with the specified parameters. One can immediately observe, that
 
 Let's take a look at the results:
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/3/Figure_3.png "Example")
-{: refdef}
-<em>Figure 4: Results from our implementations and Keras overlap tightly </em>
+<div class="imgcap">
+<img src="/assets/3/Figure_3.png" width="70%">
+<div class="thecap">Results from our implementations and Keras overlap tightly.</div></div>
 
 <em>result_custom</em> = [-0.0865001, -0.0895177, -0.0988678, ... ]
 
 <em>result_keras</em> = [-0.0865001, -0.0895177, -0.0988678, ...]
-
 
 We see that our implementation and results returned by Keras match very accurately (up to eight decimal places)!
 This is only a basic breakdown of an basic LSTM model. It has simple, numerical data with a single feature as an input. Still, the code should give a good insight (a glimpse under the hood) into the mathematical operations behind LSTMs.
@@ -254,5 +239,3 @@ This is only a basic breakdown of an basic LSTM model. It has simple, numerical 
 ## The full code in Python
 
 For condensed, full code please visit my [github](https://github.com/dtransposed/dtransposed-blog-codes/blob/master/Numpy%20implementation%20of%20LSTM%20neural%20networks.py).
-
-<em>Source of the cover image: http://www.partservice.co.uk</em>

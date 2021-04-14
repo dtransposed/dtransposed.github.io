@@ -144,6 +144,12 @@ a:hover   { color: #6c757d; text-decoration: underline; }
   background-color: #fff;
 }
 
+/* KaTeX */
+/* ----------------------------------------------------------*/
+.katex * {
+    font-size: 0.99em;
+    line-height: 1.2;
+}
 
 /* Home styles */
 /* ----------------------------------------------------------*/
@@ -220,6 +226,16 @@ a:hover   { color: #6c757d; text-decoration: underline; }
   letter-spacing: -1px;
 }
 
+.post-content h5 {
+  font-size: 15px;
+  letter-spacing: -0.2px;
+  font-weight: 400;
+}
+.post-content h6 {
+  font-size: 10px;
+  letter-spacing: -1px;
+}
+
 .post-content blockquote {
   border-left: 4px solid #999;
   padding-left: 10px;
@@ -234,6 +250,19 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 
 .post-content a {
   text-decoration: underline;
+}
+table {
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 6px 13px;
 }
 
 .post pre,
@@ -276,7 +305,7 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 /* AK custom CSS mods */
 .imgright { float: right; margin-left: 10px; }
 .imgcap img {
-  border: 1px solid #999;
+  border: 0px solid #999;
   max-width: 100%;
 }
 .imgcap {

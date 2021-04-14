@@ -1,10 +1,10 @@
 ---
 layout: post
 comments: true
-title: "Bayesian thinking- What Can We Learn About Reasoning from the Machines?"
+title: "Bayesian thinking- What can we learn about reasoning from the machines?"
 excerpt: "Bayesian reasoning may be one of the most important mathematical tools we could apply in real life. It is a powerful means to test and enhance our thinking so that we can overcome common fallacies of reasoning."
 author: "Damian Bogunowicz"
-mathjax: true
+katex: true
 ---
 Bayes' rule may be one of the numerous formulas students are introduced to during A-Level maths course. I believe that most pupils (including myself back in the days) usually learn it by heart, use it without thought during their statistics exam and quickly forget it. But Bayesian reasoning may actually be one of the most important mathematical tools we could apply in real life. It is a powerful means to test and enhance our thinking so that we can overcome common fallacies of reasoning.
 

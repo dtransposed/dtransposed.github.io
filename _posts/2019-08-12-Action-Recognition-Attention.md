@@ -4,56 +4,53 @@ title: "Tutorial - Visual Attention for Action Recognition"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [computer vision, tutorial, neural networks, classification]
-image: attention.jpeg
-
+excerpt: "Visual attention for action recognition: short overview of the history, discussion of the neural network architectures together with the implementation details and results."
 ---
 
 Action recognition is the task of inferring various actions from video clips. This feels like a natural extension of image classification task to multiple frames. The final decision on the class membership is being made by fusing the information from all the processed frames. Reasoning about a video remains a challenging task because of high computational cost (it takes more resources to processes three-dimensional data structures than 2D tensors), difficulty of capturing spatio-temporal context across frames (especially problematic when the position of a camera changes rapidly) or the difficulty of obtaining a useful, specialized dataset (it is much easier and cheaper to collect vast amounts of independent images then image sequences). 
 
-
-
-<img src="/assets/8/3000.gif" width="300"> <img src="/assets/8/2006.gif" width="300">
-
-<em> Attention module allows the network to explain its choice of class by pointing at important parts of the video (by generating heatmaps).</em> 
+<div class="imgcap">
+<img src="/assets/8/3000.gif" width="40%">
+<img src="/assets/8/2006.gif" width="40%">
+<div class="thecap">Attention module allows the network to explain its choice of class by pointing at important parts of the video (by generating heatmaps).</div></div>
 
 Independently of the action recognition problem, the machine learning community observed a surge of scientific work which uses soft attention model - introduced initially for machine translation by Bahdanau et. al 2014[^1] . It has gotten more attention then its sibling, hard attention, because of its deterministic behavior and simplicity. The intuition behind the attention mechanism can be easily explained using human perception. Our visual processing system tends to focus selectively on parts of the receptive field while ignoring other irrelevant information. This helps us to filter out noise and effectively reason about the surrounding world. Similarly, in several problems involving language, speech or vision, some parts of the input can be more relevant compared to others. For instance, in translation and summarization tasks, only certain words in the input sequence may be relevant for predicting the next word. 
 
 The purpose of this blog post is to present how the visual attention can be used for action recognition. I will give a short overview of the history, discuss the neural network architectures used in the tutorial together with the implementation details and finally present the results produced by two methods: Attention LSTM __(ALSTM)__ and Convolutional Attention LSTM __(ConvALSTM)__. The implementation described in this tutorial can be found in my [github repo](https://github.com/dtransposed/Paper-Implementation/tree/master/action_recognition_using_visual_attention).
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 ## Table of Contents
 
-* [Short Historical Background](#short-historical-background)
-* [Attention LSTM for Action Recognition](#attention-lstm-for-action-recognition)
-* [Summary of the Method](#summary-of-the-method)
-  * [Soft attention block](#soft-attention-block)
-  * [Final classification of weighted feature cube](#final-classification-of-weighted-feature-cube)
-  * [LSTM hidden state and cell state initialization](#lstm-hidden-state-and-cell-state-initialization)
-* [Making Attention LSTM Fully Convolutional](#making-attention-lstm-fully-convolutional)
-* [Implementation Details, Results and Evaluation](#implementation-details-results-and-evaluation)
-* [HMDB-51 Dataset Processing](#hmdb-51-dataset-processing)
-* [Implementation details](#implementation-details)
-* [Results](#results)
-  * [Successful predictions](#successful-predictions)
-     * [ALSTM](#alstm)
-     * [ConvALSTM](#convalstm)
-  * [Failure cases](#failure-cases)
-     * [ALSTM](#alstm-1)
-     * [ConvALSTM](#convalstm-1)
-* [References](#references)
+- [Short Historical Background](#short-historical-background)
+- [Attention LSTM for Action Recognition](#attention-lstm-for-action-recognition)
+    - [Summary of the Method](#summary-of-the-method)
+        - [Soft attention block](#soft-attention-block)
+        - [Final classification of weighted feature cube](#final-classification-of-weighted-feature-cube)
+        - [LSTM hidden state and cell state initialization](#lstm-hidden-state-and-cell-state-initialization)
+- [Making Attention LSTM Fully Convolutional](#making-attention-lstm-fully-convolutional)
+- [Implementation Details, Results and Evaluation](#implementation-details-results-and-evaluation)
+    - [HMDB-51 Dataset Processing](#hmdb-51-dataset-processing)
+    - [Implementation details](#implementation-details)
+    - [Results](#results)
+        - [Successful predictions](#successful-predictions)
+            - [ALSTM](#alstm)
+            - [ConvALSTM](#convalstm)
+        - [Failure cases](#failure-cases)
+            - [ALSTM](#alstm-1)
+            - [ConvALSTM](#convalstm-1)
+- [References](#references)
+- [Footnotes](#footnotes)
+
+<!-- markdown-toc end -->
 
 ## Short Historical Background
 
 The surge of deep learning research in the domain of __action recognition__ came around year 2014. That's when the problem has been successfully tackled from two angles. Karpathy et al. 2014 [^2] used convolutional neural networks (CNNs) to extract information from consecutive video frames and then fused those representations to reason about the class of the whole sequence. Soon Simmoyan and Zisserman 2014 [^3] came up with different solution - a network which analyzes two input streams independently: one stream reasons about the spatial context (video frames) while the second uses temporal information (extracted optical flow). Finally both pieces of information are combined so the network can compute class score. Another work introduced by Du Tran et al. 2014[^4] uses 3D convolutional kernels on spatiotemporal cube. Lastly, one of the most popular approaches was proposed by Donahue et al. 2014 [^5] . Here, the encoder-decoder architecture takes each single frame of the sequence, encodes it using a CNN and feeds its representation to an Long-Short Term Memory (LSTM) block. This way we "compress" the image using feature extractor and then learn the temporal dependencies between frames using recurrent neural network. 
-<p align="center">
-<img src="/assets/8/fencing.gif" width="300">
-</p>
-<p align="center">
-<img src="/assets/8/cycling.gif" width="300">
-</p>
-<p align="center">
-<img src="/assets/8/walking.gif" width="300">
-</p>
-<em> Several examples of videos from HMDB-51 dataset. Each video belongs to one of the 51 classes: "fencing" (top), "ride_bike" (middle), "walk" (down).</em> 
+<div class="imgcap">
+<img src="/assets/8/fencing.gif" width="400">
+<img src="/assets/8/cycling.gif" width="400">
+<img src="/assets/8/walking.gif" width="400">
+<div class="thecap">Several examples of videos from HMDB-51 dataset. Each video belongs to one of the 51 classes: "fencing" (top), "ride_bike" (middle), "walk" (down).</div></div>
 
 With the increasing popularity of __attention mechanisms__ applied to the tasks such as image captioning or machine translation, incorporating visual attention in the action recognition tasks became an interesting research idea. The work by Sharma et al. 2016[^6]  may serve as an example. This is the first method which will be covered in this article. This idea has been improved by Z.Li et al. 2018 [^7] where  three further concepts were introduced. Firstly, the spatial layout of the input is being preserved throughout the whole network. This was not the case in the previous approach, where image was flattened at some point and treated as a vector. Secondly, the authors additionally feed optical flow information to the network. This makes the architecture more sensitive to the motion between the frames. Finally, the attention is also being used for action localization. This work will also be partially covered in this tutorial. For the sake of completeness it is important to mention that visual attention was also combined with 3D CNNs by Yao et al. 2015 [^8] . It is pretty fascinating how this concept has been successfully applied some many different domains and methods!
 
@@ -71,8 +68,9 @@ $$D=512$$
 
 Then, the model combines the feature cube  $${\mathbf{X}}_{t,i}$$ with the respective attention map $$c_{t}\in  \mathbb{R}^{F^2}$$ (how we get those maps - I will explain soon) and propagates its vectorized form through an LSTM. The recurrent block then outputs a "context vector" $$h_t$$. This vector is being used not only to predict the action class of the current frame but is also being passed as a "history of the past frames" to generate next attention map $$c_{t+1}$$ for the frame $$x_{t+1}$$.
 
-<img src="/assets/8/alstm.jpg">
-<em> The detailed presentation of the network's architecture (open in new tab to enlarge). </em> 
+<div class="imgcap">
+<img src="/assets/8/alstm.jpg" width="100%">
+<div class="thecap">The detailed presentation of the network's architecture (open in new tab to enlarge). </div></div> 
 
 Let's take a closer look the the network. It can be dissected into three components:
 
@@ -111,8 +109,9 @@ As mentioned before, the work Z. Li et al. introduces three new ideas regarding 
 1. __Removing the cell state and hidden state initialization block__. While the authors of ALSTM did follow the initialization strategy for faster convergence, it seems that the network does fine without this component. This means that we only need to initialize the hidden state as a tensor of zeros every time the first frame of the given video enters the pipeline.
 2. __Keeping the network (almost) entirely convolutional__. Treating images as an 2D grid rather then a vector helps to  preserve a spatial correlation (in this regard the convolutions are much better then inner products), leverages local receptive field and allows weight sharing. Therefore we substitute all fully connected layers for convolutional kernels (except for the last classification layer) and use convolutional LSTM instead of the standard one. Thus the hidden state is not a vector anymore, but a 3-D tensor.
 
-<img src="/assets/8/convalstm.jpg">
-<em> The detailed presentation of the improved network's architecture (open in new tab to enlarge). </em> 
+<div class="imgcap">
+<img src="/assets/8/convalstm.jpg" width="100%">
+<div class="thecap">The detailed presentation of the improved network's architecture (open in new tab to enlarge). </div></div> 
 
 ## Implementation Details, Results and Evaluation
 
@@ -159,34 +158,37 @@ To obtain a prediction for an entire video clip, I compute the mode of predictio
 
 #####  ALSTM
 
-<img src="/assets/8/2002.gif" width="300"> <img src="/assets/8/2003.gif" width="300">
-
-<img src="/assets/8/2004.gif" width="300"> <img src="/assets/8/2005.gif" width="300">
-
-<em> Several videos along with their ground truth label and the predicted label (with the confidence degree).
-1) Correct prediction of "kiss class" with network attending to faces of kissing people. 2)  Correct prediction of "pushup" with network attending to the body of the athlete. 3) Correct prediction of "ride_bike" class, with network attending to the bike. Note that when the bike is not seen anymore, the network is confused. The confidence drops, it produces wrong predictions and is not sure where to "look at". 4) Correct prediction of "brush_hair" with network attending to the hand with a brush.</em> 
+<div class="imgcap">
+<img src="/assets/8/2002.gif" width="40%">
+<img src="/assets/8/2003.gif" width="40%">
+<img src="/assets/8/2004.gif" width="40%">
+<img src="/assets/8/2005.gif" width="40%">
+  <div class="thecap">Several videos along with their ground truth label and the predicted label (with the confidence degree). 1) Correct prediction of "kiss class" with network attending to faces of kissing people. 2)  Correct prediction of "pushup" with network attending to the body of the athlete. 3) Correct prediction of "ride_bike" class, with network attending to the bike. Note that when the bike is not seen anymore, the network is confused. The confidence drops, it produces wrong predictions and is not sure where to "look at". 4) Correct prediction of "brush_hair" with network attending to the hand with a brush.</div></div>
 
 ##### ConvALSTM
 
-<img src="/assets/8/3001.gif" width="300"><img src="/assets/8/final.gif" width="300">
-
-<img src="/assets/8/3002.gif" width="300"> <img src="/assets/8/3004.gif" width="300">
-
-<em> 1) The network accurately predicts the label "climb" and the location of the climber. 2) Even though the predicted label is not correct, the network clearly has learned the concept of a sword and can dynamically attend to the silhouette of a man. 3) Model follows the horserider with such precision, that the attention heatmaps could be used for tracking! 4) Correct classification of "smoking" class. Note that network tracks the cigarette and smoke.  </em>
+<div class="imgcap">
+<img src="/assets/8/3001.gif" width="40%">
+<img src="/assets/8/final.gif" width="40%">
+<img src="/assets/8/3002.gif" width="40%">
+<img src="/assets/8/3004.gif" width="40%">
+  <div class="thecap">1) The network accurately predicts the label "climb" and the location of the climber. 2) Even though the predicted label is not correct, the network clearly has learned the concept of a sword and can dynamically attend to the silhouette of a man. 3) Model follows the horserider with such precision, that the attention heatmaps could be used for tracking! 4) Correct classification of "smoking" class. Note that network tracks the cigarette and smoke.</div></div>
 
 #### Failure cases 
 
 ##### ALSTM
 
-<img src="/assets/8/2000.gif" width="300"> <img src="/assets/8/2001.gif" width="300" >
-
-<em> While the girl is sitting, the network prioritizes this action over the ground truth. She also briefly puts a barett in her mouth - the network classifies those frame as "eating". The jumping goalkeeper is thought to be doing flic flac or somersault. Additionally, the network associates large, grassy field with a game of golf.</em> 
+<div class="imgcap">
+<img src="/assets/8/2000.gif" width="40%">
+<img src="/assets/8/2001.gif" width="40%">
+  <div class="thecap">While the girl is sitting, the network prioritizes this action over the ground truth. She also briefly puts a barett in her mouth - the network classifies those frame as "eating". The jumping goalkeeper is thought to be doing flic flac or somersault. Additionally, the network associates large, grassy field with a game of golf.</div></div>
 
 ##### ConvALSTM
 
-<img src="/assets/8/3003.gif" width="300"> <img src="/assets/8/3005.gif" width="300">
-
-<em> 1) The network decides to partially classify "situp" video as "brush_hair". This may be due to unusual camera pose. 2)  The basketball hoop is misleading the classifier, it partially predicts wrong (albeit very similar to the ground truth) class. Note how the network attends to the hand visible in first several frames. </em>
+<div class="imgcap">
+<img src="/assets/8/3003.gif" width="40%">
+<img src="/assets/8/3005.gif" width="40%">
+  <div class="thecap">1) The network decides to partially classify "situp" video as "brush_hair". This may be due to unusual camera pose. 2)  The basketball hoop is misleading the classifier, it partially predicts wrong (albeit very similar to the ground truth) class. Note how the network attends to the hand visible in first several frames. </div></div>
 
 
 

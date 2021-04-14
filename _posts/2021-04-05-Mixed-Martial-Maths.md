@@ -3,14 +3,10 @@ layout: post
 title: "Mixed Martial Maths - Simple Reasoning Tools For Complex Phenomena"
 author: "Damian Bogunowicz"
 categories: blog
-tags: [mathematics, reasoning, engineering,approximation]
-image: mmm.jpg
-mathjax: true
-
+tags: [mathematics, reasoning, engineering, approximation]
+excerpt: "The goal of this article is to present several reasoning tools, which will allow you to answer <em>Fermi questions</em>, harness complexity and make you less wrong on the daily basis."
 ---
-Recently I have been interested in obtaining a very particular skill. I have seen this ability demonstrated by many excellent individuals - not in only in the tech world, but also in finance or consulting industry.
-
-I am talking here about the art of <em>back-of-the-napkin</em> (or <em>back-of-the-envelope</em>) calculation, also known as <em>guesstimation</em> or <em>order-of-magnitude analysis</em>. 
+Recently I have been interested in obtaining a very particular skill. I have seen this ability demonstrated by many excellent individuals - not in only in the tech world, but also in finance or consulting industry. I am talking here about the art of <em>back-of-the-napkin</em> (or <em>back-of-the-envelope</em>) calculation, also known as <em>guesstimation</em> or <em>order-of-magnitude analysis</em>. 
 
 In your professional and private life you may be often presented with difficult question, where the insight is much more important than the precision of the final answer. For example:
 
@@ -50,7 +46,7 @@ I will be mentioning **divide-and-conquer** reasoning in conjunction with other 
 
 The purpose of divide-and-conquer is to be break the problem into smaller, digestible pieces and then combine them into a full solution.
 
-First let's think about how long it takes to say a number out-loud. For relatively small numbers it takes me about $$0.5$$ second, while I need up to $$5$$ seconds to say: $$999,999,999$$. We can use the best- and worse-case scenario to compute an "average" time necessary to say a number. 
+First let's think about how long it takes to say a number out-loud. For relatively small numbers it takes me about 0.5 second, while I need up to 5 seconds to say: 999,999,999. We can use the best- and worse-case scenario to compute an "average" time necessary to say a number. 
 
 To combine quantities produced by our "mental hardware" (especially lower and upper bounds), we shall use geometric mean, rather than arithmetic mean. This is because geometric mean operates on a logarithmic scale and this is compatible with how humans perceive quantities - through ratios.
 
@@ -58,13 +54,13 @@ $$
 t_{mean} = \sqrt{t_{max} \cdot t_{min}}=\sqrt{5 \cdot 0.5} \approx 1.6s
 $$
 
-An average time to say a number out-loud is about $$1.6$$ second. Now, we can complete the assignment by calculating how much time it takes to say a number out-loud billion times!
+An average time to say a number out-loud is about 1.6 second. Now, we can complete the assignment by calculating how much time it takes to say a number out-loud billion times!
 
 $$
 t_{tot} = t_{mean} \cdot 10^9 = 1.6s\cdot 10^9
 $$
 
-This is equivalent to about $$51$$ years, quite some time!
+This is equivalent to about 51 years, quite some time!
 
 We broke one, seemingly overwhelming problem into two, fairly easy ones. While the complexity of the example was pretty modest,  the usefulness of **divide-and-conquer** reasoning will be demonstrated later on in this write-up. 
 
@@ -103,9 +99,10 @@ But why did the Romans do, seemingly, such a poor job? You can find the answer [
 It is particularly beneficial to discover an existence of some **invariants** in the problem. **Invariants** mean that there exists some form of **conservation** or **symmetry** in the system. Hence, some part of complexity is a mirror copy of the remaining complexity and can be safely discarded.
 
 #### A Rat-Eaten Chessboard
-<p align="center">
- <img src="/assets/13/image1.png" alt="image1" style="zoom:50%;" />
-</p>
+
+<div class="imgcap">
+<img src="/assets/13/image1.png" width="50%"> 
+  <div class="thecap"></div></div>
 
 Imagine a basement, where you keep your old chess set.  A rat comes out and gnaws on your antique  chessboard. As a result, the animal chews off two diagonally opposite corners out your standard $$8 \times 8$$ chessboard. In the basement you also keep a box of rectangular $$2 \times 1$$ dominoes. 
 
@@ -119,7 +116,7 @@ $$
 x = \text{uncovered}_{\text{white}} - \text{uncovered}_{\text{black}}
 $$
 
-A regular $$8 \times 8$$ chessboard initially has $$32$$ black squares and $$32$$ white squares. Our perturbed chessboard is missing $$2$$ black squares. This means that:
+A regular $$8 \times 8$$ chessboard initially has 32 black squares and 32 white squares. Our perturbed chessboard is missing 2 black squares. This means that:
 
 $$
 x_{initial} = 32-30=2
@@ -131,7 +128,7 @@ $$
 x_{final} = 0-0 = 0
 $$
 
-Because $$x_{final} \neq x_{initial}$$ ($$x$$ is always equal to $$2$$ after every move until no further moves are available), we cannot tile the nibbled chessboard with dominoes. We can reach this conclusion immediately once we find a meaningful invariant.
+Because $$x_{final} \neq x_{initial}$$ ($$x$$ is always equal to 2 after every move until no further moves are available), we cannot tile the nibbled chessboard with dominoes. We can reach this conclusion immediately once we find a meaningful invariant.
 
 Whenever facing a complex problem, it is helpful to look for the **conserved** quantity. Finding the **invariant** allows for creation of a high-level abstraction layer of the problem. Operating on this abstraction layer can directly lead to the solution without delving into the messy complexity of the problem at hand. Often, however, the invariant is given, so we can analyse the actions that preserve it. Those actions, which take advantage of the **symmetry** of the problem and preserve it, are called **symmetry operations** .
 
@@ -139,9 +136,9 @@ Whenever facing a complex problem, it is helpful to look for the **conserved** q
 
 The fans of mathematical anecdotes surely know the one about the young Carl Friedrich Gauss. As a young student he was given the following problem:
 
-> Find the sum numbers from $$1$$ to $$100$$. 
+> Find the sum numbers from 1 to 100. 
 
-It took just several minutes until the prodigy child quickly returned with the answer: $$5050$$. What was the trick?
+It took just several minutes until the prodigy child quickly returned with the answer: 5050. What was the trick?
 
 Gauss found the **invariant**, the sum, which does not change when the terms are added "forward" (from the lowest number to the highest) or "backward" (from the highest number to lowest) - hence he also discovered the corresponding **symmetry operation**.
 
@@ -160,9 +157,9 @@ S=\frac{10100}{2} = 5050
 $$
 
 #### Finding vertex without the calculus
-<p align="center">
- <img src="/assets/13/unknown.png" alt="image2" style="zoom:60%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/unknown.png" width="60%"> 
+  <div class="thecap"></div></div>
 
 Let's find the maximum of the simple function:
 
@@ -180,7 +177,7 @@ $$
 f(x)=-x^2+2x=x(-x+2)
 $$
 
-Since multiplication is commutative ($$x(-x+2) = (-x+2)x$$) , we have found our symmetry operation: $$x \leftrightarrow -x+2$$. This operation turns $$2$$ into $$0$$ or $$3$$ into $$-1$$ (and vice-versa). The only value unchanged (left invariant) by the symmetry operation is $$1$$, the solution to our problem!
+Since multiplication is commutative ($$x(-x+2) = (-x+2)x$$) , we have found our symmetry operation: $$x \leftrightarrow -x+2$$. This operation turns 2 into 0 or 3 into -1 (and vice-versa). The only value unchanged (left invariant) by the symmetry operation is 1, the solution to our problem!
 
 Interestingly, I have also been recently reading completely unrelated book by Benoit Mandelbrot. It was interesting to stumble upon his testimony about invariants in the context of financial engineering:
 
@@ -196,13 +193,13 @@ Proportional reasoning is yet another powerful weapon, which allows to avoid com
 
 If a person approached you on the street and asked: "how many McDonald's restaurants are there in your country?", you would be probably quite baffled. If not due to the surprising nature of the question, then certainly by the difficulty of the estimate. Most of the people I asked usually were overstating the number - some of the estimates were off by two orders of magnitude! They would surely give an accurate answer, if they knew about the proportional reasoning.
 
-My hometown in Poland has, give or take, $$400$$ thousand inhabitants. We surely had about $$5$$ McDonald's outlets back when I was attending middle high. Poland has population of $$40,000,000$$. By applying simple proportional reasoning I can estimate that there are...
+My hometown in Poland has, give or take, 400 thousand inhabitants. We surely had about 5 McDonald's outlets back when I was attending middle high. Poland has population of 40,000,000. By applying simple proportional reasoning I can estimate that there are...
 
 $$
 \text{restaurants}_\text{poland} = \text{restaurants}_\text{hometown}\cdot \frac{\text{population}_\text{poland}}{\text{population}_\text{hometown}} = 5 \cdot \frac{4 \cdot 10^7}{4 \cdot 10^5} = 500
 $$
 
- ...McDonald's restaurants in Poland. The actual number is $$462$$ (data from $$2019$$ according to [wikipedia](https://en.wikipedia.org/wiki/List_of_countries_with_McDonald%27s_restaurants)). Pretty neat huh?
+ ...McDonald's restaurants in Poland. The actual number is 462 (data from 2019 according to [wikipedia](https://en.wikipedia.org/wiki/List_of_countries_with_McDonald%27s_restaurants)). Pretty neat huh?
 
 #### To Fly or Not to Fly
 
@@ -226,18 +223,18 @@ Our goal is to find out the ratio on the left hand side. We can do this by estim
 
 ##### Air density
 
-Rather than estimating air density at the cruising altitude (plane) and at sea level (car) separately, let's think about their ratio. Planes fly high - Mount Everest high. I know that climbers have difficulty breathing on the peak of the mountain due to lower oxygen density. This means that the density of the air decreases with altitude. Compared to the sea level, I am guessing the density ratio of $$2$$ (sea level to plane's cruising altitude). 
+Rather than estimating air density at the cruising altitude (plane) and at sea level (car) separately, let's think about their ratio. Planes fly high - Mount Everest high. I know that climbers have difficulty breathing on the peak of the mountain due to lower oxygen density. This means that the density of the air decreases with altitude. Compared to the sea level, I am guessing the density ratio of 2 (sea level to plane's cruising altitude). 
 
 ##### Cross-section 
 
 Once again, we shouldn't care much for each value separately. Let us directly estimate the ratio! How many car cross-sections can "fit" into a cross-section of a plane? I am pretty sure that in terms of width, plane's round fuselage cross-section (I am neglecting the wings) could be occluded by three cars parked next to each other. Probably the same thing applies in the vertical dimension. If we stacked three cars on top of each other they could "cover" the plane horizontally. This means that the cross-section ratio is about $$3 \cdot 3 = 9$$
 
-<p align="center">
- <img src="/assets/13/Untitled Diagram-3.png" alt="image2" style="zoom:60%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/Untitled Diagram-3.png" width="80%"> 
+  <div class="thecap"></div></div>
 ##### Velocities 
 
-Here, I feel pretty comfortable with estimating each velocity separately. A car travels at around $$100$$km/h, while a plane travels at almost $$1000$$km/h. This means velocity ratio of $$10$$.
+Here, I feel pretty comfortable with estimating each velocity separately. A car travels at around 100km/h, while a plane travels at almost 1000km/h. This means velocity ratio of 10.
 
 Finally, we can compute the drag energy ratio:
 
@@ -257,10 +254,9 @@ Dimensional analysis makes it possible to say a great deal about the behaviour o
 
 #### Dimensional Analysis "a la Huygens" 
 
-<p align="center">
- <img src="/assets/13/image4.png" alt="image4" style="zoom:67%;" />
-</p>
-<em> Image credit: [Khan Academy](https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-oscillations/a/trig-and-forces-the-pendulum)</em>
+<div class="imgcap">
+<img src="/assets/13/image4.png" width="60%"> 
+  <div class="thecap">Image credit: <a href ="https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations/programming-oscillations/a/trig-and-forces-the-pendulum">Khan Academy</a></div></div>
 
 Let's take a look at example which illustrates the basic method of dimensional analysis. Dimensional analysis, together with some physical intuition, allows us to find the equation for the period of oscillation for simple pendulum (a.k.a Huygens's law for the period). 
 
@@ -285,7 +281,7 @@ Those quantities shall be combined in the functional relation, such that the equ
 
 > Number of independent dimensional groups = number of quantities - number of independent dimensions
 
-How many quantities do we have? Four - period, gravitational acceleration, mass and string's length. How many independent dimensions do we have? Three - mass, time and distance. The acceleration is derived from distance and time so we do not consider it. We end up with $$4-3=1$$ dimensional group. 
+How many quantities do we have? Four - period, gravitational acceleration, mass and string's length. How many independent dimensions do we have? Three - mass, time and distance. The acceleration is derived from distance and time so we do not consider it. We end up with 4-3=1 dimensional group. 
 
 Assume that the product of listed quantities, each raised to some unknown power, shall be dimensionless:
 
@@ -313,18 +309,17 @@ Also, note that the dimensionless constant $$C$$ is universal. The same constant
 
 ##### 4. Use physical knowledge to narrow down the possibilities
 
-The last element is finding the dimensionless constant. How? Sure, you can solve the pendulum differential equation, but how about a small experiment? Take something which resembles a simple pendulum (e.g. I used my key chain) and make it oscillate. Write down the length and the period and plug it into equation to estimate $$C$$. If the value is close to $$6$$, well done! It is in fact $$2\pi$$!
+The last element is finding the dimensionless constant. How? Sure, you can solve the pendulum differential equation, but how about a small experiment? Take something which resembles a simple pendulum (e.g. I used my key chain) and make it oscillate. Write down the length and the period and plug it into equation to estimate $$C$$. If the value is close to 6, well done! It is in fact $$2\pi$$!
 
 
 #### A Picture Worth a Thousand Tons of TNT
-<p align="center">
- <img src="/assets/13/image5.jpg" alt="image5" style="zoom:40%;" />
-</p>
-<em> In the desert of New Mexico, the scientists and military servicemen of the ultra secret Manhattan Project watched as the first atomic bomb - code-named Trinity - was set off ($$1945$$).</em> 
+<div class="imgcap">
+<img src="/assets/13/image5.jpg" width="50%"> 
+  <div class="thecap">In the desert of New Mexico, the scientists and military servicemen of the ultra secret Manhattan Project watched as the first atomic bomb - code-named Trinity - was set off (1945).</div></div>
 
 Estimating the period of the pendulum was just a warm up exercise. Time for something more exciting - estimation of the atomic bomb energy. Yes, this example will surely make us appreciate the power of the dimensional analysis. 
 
-The first explosion of an atomic bomb happened in New Mexico in $$1945$$. Several years later a series of pictures of the explosion, along with a scale bar of the fireball and timestamps, were released out to the public. However, the information about the blast energy (yield) remained highly classified for years.
+The first explosion of an atomic bomb happened in New Mexico in 1945. Several years later a series of pictures of the explosion, along with a scale bar of the fireball and timestamps, were released out to the public. However, the information about the blast energy (yield) remained highly classified for years.
 
 However, with the use of the pictures and the dimensional analysis, the great scientists G.I Taylor estimated the secret value pretty accurately.
 
@@ -353,15 +348,15 @@ $$
 E^{1}t^{2}R^{-5}\rho^{-1} = C \implies E = C\frac{\rho R^5}{t^2}
 $$
 
-Finding $$C$$ in the analogous way to the previous example is difficult (unless you have some spare atomic bombs). I can spill the beans and tell you, that G.I Taylor estimated it (using experimental data) to be close to $$1$$.
+Finding $$C$$ in the analogous way to the previous example is difficult (unless you have some spare atomic bombs). I can spill the beans and tell you, that G.I Taylor estimated it (using experimental data) to be close to 1.
 
-While air density can be looked up, the radius and time can be read off from the photograph. At $$t=0.016$$ seconds we can say that $$R \approx 150$$ metres. Let's plug in the numbers to find the energy.
+While air density can be looked up, the radius and time can be read off from the photograph. At t=0.016 seconds we can say that $$R \approx 150$$ metres. Let's plug in the numbers to find the energy.
 
 $$
 E = \frac{1.2 \cdot 150^5}{0.016^2} \approx 10^{14}J
 $$
 
-$$10^{14}$$ Joules is equivalent to $$25$$ kilo-tons of TNT. Taylor has reported the value of $$22$$ kilo-tons in $$1950$$, while Fermi, who also used guesstimation to compute the yield obtained result of $$10$$ kilo-tons in $$1945$$. The actual, classified yield was $$20$$ kilo-tons. Not bad for the back-of-the-envelope calculation...
+$$10^{14}$$ Joules is equivalent to 25 kilo-tons of TNT. Taylor has reported the value of 22 kilo-tons in 1950, while Fermi, who also used guesstimation to compute the yield obtained result of 10 kilo-tons in 1945. The actual, classified yield was 20 kilo-tons. Not bad for the back-of-the-envelope calculation...
 
 **Conclusion: Dimensional analysis allows us to establish the form of an equation, or more often, to check that the answer to a calculation as a guard against many simple errors.** 
 
@@ -381,13 +376,13 @@ $$
 1\text{ month} \times \frac{30 \text{ days}}{\text{month}} \times \frac{24\text{ hours}}{\text{day}} \times \frac{60\text{ minutes}}{\text{hour}} = 30 \times 24 \times 60 \text{ minutes}
 $$
 
-You may find it quite challenging to multiply all the numbers quickly. So let's round each factor to the nearest power of $$10$$. For example, because $$60$$ is a factor of almost $$2$$ away from $$100$$, but a factor of $$6$$ away from $$10$$, it gets rounded to $$100$$. We apply same rule for the other factors:
+You may find it quite challenging to multiply all the numbers quickly. So let's round each factor to the nearest power of 10. For example, because 60 is a factor of almost 2 away from 100, but a factor of 6 away from 10, it gets rounded to 100. We apply same rule for the other factors:
 
 $$
 30 \times 24 \times 60 \approx 10 \times 10\times 100 = 10^{1+1+2} = 10^4
 $$
 
-The exact value is $$43,200$$, so the estimate of $$10,000$$ is too small by $$23$$ percent. This is a reasonable price to pay for the ability to estimate such a big number without any effort.
+The exact value is 43,200, so the estimate of 10,000 is too small by 23 percent. This is a reasonable price to pay for the ability to estimate such a big number without any effort.
 
 #### How High 
 
@@ -401,17 +396,17 @@ Fine, now we can try to start constructing some physical model to illustrate the
 
 Once again, start simple. We may use principle of **conservation** to define two quantities: 
 
--  $$E_\text{supplied}$$ - the amount of energy needed for an animal to reach jumping height $$h$$.
+-  $$E_\text{supplied}$$ - the amount of energy needed for an animal to reach jumping height h.
 
 -  $$E_\text{demanded}$$ - the maximum amount of energy that an animal can generate using its muscles.
 
 We can analyse both energy terms separately and then use the fact that they must be in equilibrium (like supply and demand in economics).
-<p align="center">
- <img src="/assets/13/image6.svg" alt="image5" style="zoom:70%;" />
-</p>
-<em>A tree that summarises our model. Notice the use of **divide-and-conquer** reasoning</em>.
 
-Energy demanded is the amount of energy needed for an animal to reach jumping height $$h$$. The type of energy, which is responsible for bodies being lifted up away from the Earth's surface is potential energy. It depends on the height $$h$$, body mass $$m_\text{body}$$ and gravity $$g$$. We can discard the gravity term - all the considered animals experience the same gravitational acceleration. 
+<div class="imgcap">
+<img src="/assets/13/image6.svg" width="70%"> 
+  <div class="thecap">A tree that summarises our model. Notice the use of <b>divide-and-conquer</b> reasoning.</div></div>
+
+Energy demanded is the amount of energy needed for an animal to reach jumping height h. The type of energy, which is responsible for bodies being lifted up away from the Earth's surface is potential energy. It depends on the height h, body mass $$m_\text{body}$$ and gravity g. We can discard the gravity term - all the considered animals experience the same gravitational acceleration. 
 
 $$
 E_\text{demanded} \propto m_\text{body}h
@@ -445,9 +440,9 @@ $$
 
 How can this be true? Let's think about it. Very small animals can jump very high. Think about insects such as fleas, grasshoppers or locust. But larger animals, such as crocodiles and turtles are very poor jumpers! Tigers, lions, humans and monkeys can jump very high. But can elephants jump at all?  Let's allow the data to provide some answers:
 
-<p align="center">
- <img src="/assets/13/image7.png" alt="image7" style="zoom:80%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/image7.png" width="70%"> 
+  <div class="thecap"></div></div>
 
 The data does in fact confirm our finding. For all the different animals, which mass spans from micrograms to tons (up to 8 orders of magnitude) the jumping height varies by tens of centimetres. The predicted scaling of constant $$m_\text{body}^0 \propto 1 \propto h$$  is surprisingly accurate.
 
@@ -465,11 +460,11 @@ Let's use the method of easy cases to solve a simple problem: determine the area
 
 We know that an ellipse is this peculiar, circle-like object with two focal points, hence two radii. We can be pretty confident that the area of the ellipse will depend on those two radii and since their ratio is a dimensionless quantity, we can use it as our $$\beta$$. Let's investigate the behaviour of $$\beta$$ for three regimes:
 
-|                           Regime 1                           |                           Regime 2                           |                           Regime 3                           |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|              $$\frac{r_{1}}{r_{2}} =\beta \ll 1$$              |            $$\frac{r_{1}}{r_{2}} =\beta \approx 1$$            |              $$\frac{r_{1}}{r_{2}} =\beta \gg 1$$              |
-| <img src="/assets/13/image8.png" alt="image8" style="zoom:50%;" /> | <img src="/assets/13/image10.png" alt="image10" style="zoom:50%;" /> | <img src="/assets/13/image9.png" alt="image" style="zoom:50%;" /> |
-|             The area of the ellipse tends to $$0$$.              | The ellipse becomes a radius with the area $$r_{1}^{2}\pi$$ (or $$r_{2}^{2}\pi$$ ). |             The area of the ellipse tends to $$0$$.              |
+|                    Regime 1                    |                           Regime 2                           |                    Regime 3                    |
+| :--------------------------------------------: | :----------------------------------------------------------: | :--------------------------------------------: |
+|      $$\frac{r_{1}}{r_{2}} =\beta \ll 1$$      |           $$\frac{r_{1}}{r_{2}} =\beta \approx 1$$           |      $$\frac{r_{1}}{r_{2}} =\beta \gg 1$$      |
+| <img src="/assets/13/image8.png" width="80%"/> |       <img src="/assets/13/image10.png" width="80%"/>        | <img src="/assets/13/image9.png" width="80%"/> |
+|      The area of the ellipse tends to 0.       | The ellipse becomes a radius with the area $$r_{1}^{2}\pi$$ (or $$r_{2}^{2}\pi$$ ). |      The area of the ellipse tends to 0.       |
 
 Regime 2 suggests that  $$r_{1}^{2}\pi$$ or $$r_{2}^{2}\pi$$ may be the answer, but we know that those are particular cases of an ellipse. On the other hand, regimes 1 and 3 suggest, that there is a symmetry in the problem. Perhaps, in the general equation  we need to include both $$r_1$$ and $$r_2$$? This implies that interchanging $$r_{1}$$ and $$r_{2}$$ shall have no effect on the area of the ellipse. Those two pieces of information suggest that the correct equation should be:
 
@@ -502,13 +497,13 @@ Let's think about the behaviour of the system in terms of **easy-cases** regimes
 |                        $$\beta \ll 1$$                         |                   $$\beta \approx 1$$                   |                        $$\beta \gg 1$$                         |
 | The dispersion of the molecules is stronger than the gravity - atmosphere expanding. | State of equilibrium - the atmosphere remains stable. | The dispersion of the molecules is weaker than the gravity - atmosphere contracting. |
 
-Nature is biased towards equilibria so we should use regime 2 to continue with our problem - computing the height of the atmosphere. Temperature of the atmosphere is about $$300$$ Kelvins, mass of the atmosphere can be approximated as a mass of a nitrogen molecule (Earth's atmosphere is mostly nitrogen) and gravitational acceleration and Boltzmann constant are known to us.
+Nature is biased towards equilibria so we should use regime 2 to continue with our problem - computing the height of the atmosphere. Temperature of the atmosphere is about 300 Kelvins, mass of the atmosphere can be approximated as a mass of a nitrogen molecule (Earth's atmosphere is mostly nitrogen) and gravitational acceleration and Boltzmann constant are known to us.
 
 $$
 h = \frac{Tk_b}{mg} \approx \frac{300 \cdot 1.38 \cdot 10^{-23}}{4.65 \cdot 10^{-26}\cdot 9.81} \approx 9000\text{m}
 $$
 
-In reality Earth's atmosphere stretches from the surface of the planet up to as far as $$10,000$$ kilometres above (after that, the atmosphere blends into space).
+In reality Earth's atmosphere stretches from the surface of the planet up to as far as 10,000 kilometres above (after that, the atmosphere blends into space).
 
 **Conclusion: When the going gets tough, the tough lower your standards. A correct solution works in all cases, including the easy cases. Therefore, look at the easy cases first. Often, we can completely solve a problem simply by understanding the easy cases.**
 
@@ -555,7 +550,7 @@ $$
 \text{strain} = \frac{\Delta x}{a}
 $$
 
-Where $$\Delta x$$ is the extension of the spring and $a$ is the length of the bond between two atoms at rest.
+Where $$\Delta x$$ is the extension of the spring and $$a$$ is the length of the bond between two atoms at rest.
 
 How to compute $$\Delta x$$? Using the spring equation for a single fibre:
 
@@ -593,9 +588,9 @@ The final element in our toolbox is **probabilistic reasoning**. Bayesian thinki
 
 To compute the area of a country, we can do quick <em>order-of-magnitude</em> estimation. Imagine that Germany has perfectly rectangular area. Given, that we speak in terms of kilometres, could the area of Germany be $$10 \times 10$$? Absolutely not! $$100 \times 100$$? Still, too little. $$1000 \times 1000$$, probably too much... So it seems that the good estimate is somewhere between $$10^5$$ and $$10^6$$. I am pretty sure about that, so I may give 2-to-1 odds that the correct value lies in that range. 2-to-1 odds means that I attach probability $$P\approx 2/3$$ to this statement.
 
-<p align="center">
- <img src="/assets/13/image_Area (order-of-magnitude).png" alt="image5" style="zoom:70%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/image_Area (order-of-magnitude).png" width="80%"> 
+  <div class="thecap"></div></div>
 
 $$
 A_\text{order-of-magnitude} = 10^5...10^6 \text{ }[\text{km}^2]
@@ -605,9 +600,9 @@ $$
 
 This is the result obtained from rough estimation. Now let's use **divide-and-conquer** reasoning. The rectangular area is product of two values: height and width. 
 
-The height of Germany is a bit more than a distance between Hamburg and Munich. Having spent a lot of time travelling between those cities in the past, I know that it takes about $$8$$ hours by car to cross Germany north to south. This implies the distance of $$1200$$ kilometres. While I am not sure about the exact value, I think that it's not less than $$800$$, but not more than $$1500$$ kilometres. Once again, I attach probability of $$P\approx 2/3$$ to this statement.
+The height of Germany is a bit more than a distance between Hamburg and Munich. Having spent a lot of time travelling between those cities in the past, I know that it takes about 8 hours by car to cross Germany north to south. This implies the distance of 1200 kilometres. While I am not sure about the exact value, I think that it's not less than 800, but not more than 1500 kilometres. Once again, I attach probability of $$P\approx 2/3$$ to this statement.
 
-Germany is certainly longer than wider, so the width is less than the height. To travel from Hamburg to the Dutch border it takes about $$5$$ hours or so. I am not really sure, but I bet that it is not less than $$300$$, and not more than $$600$$ kilometres. 
+Germany is certainly longer than wider, so the width is less than the height. To travel from Hamburg to the Dutch border it takes about 5 hours or so. I am not really sure, but I bet that it is not less than 300, and not more than 600 kilometres. 
 
 $$
 h_\text{divide-and-conquer} = 800...1500 \text{ }[\text{km}]
@@ -625,11 +620,10 @@ $$
 A_{max, \text{divide-and-conquer}} = 600 \cdot 1500 = 900,000 \text{ }[\text{km}]
 $$
 
-<p align="center">
- <img src="/assets/13/image_Area (divide-conquer).png" alt="image5" style="zoom:70%;" />
-</p>
-
-We can already see the benefits of **divide-and-conquer** over the rough order-of-magnitude estimation - we are much more surer about the actual result. It has significantly narrowed the confidence interval by replacing a quantity about which we have vague knowledge (area), with quantities about which can be approximated much more precisely (width and height). The direct approximation gives us a range which spans over ratio of $$10$$. However, divide-and-conquer gives the ratio of $$\frac{A_{max}}{A_{min}} \approx 3.75$$. 
+<div class="imgcap">
+<img src="/assets/13/image_Area (divide-conquer).png" width="80%"> 
+  <div class="thecap"></div></div>
+We can already see the benefits of **divide-and-conquer** over the rough order-of-magnitude estimation - we are much more surer about the actual result. It has significantly narrowed the confidence interval by replacing a quantity about which we have vague knowledge (area), with quantities about which can be approximated much more precisely (width and height). The direct approximation gives us a range which spans over ratio of 10. However, divide-and-conquer gives the ratio of $$A_{max} / A_{min} \approx 3.75$$. 
 
 ##### Method 3: Divide-and-Conquer + Probabilistic Reasoning
 
@@ -643,15 +637,15 @@ $$
 h_{\sigma} = \frac{h_{max}}{h_{\mu}} =\frac{h_{\mu}}{h_{min}} = 1.37
 $$
 
-<p align="center">
- <img src="/assets/13/image_height_.png" alt="image51" style="zoom:70%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/image_height_.png" width="80%"> 
+  <div class="thecap"></div></div>
 
 Same applies for the width. 
 
-<p align="center">
- <img src="/assets/13/image_width_.png" alt="image52" style="zoom:70%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/image_width_.png" width="80%"> 
+  <div class="thecap"></div></div>
 
 Now to find the area, we can combine those two distributions, which is equivalent of multiplying two point estimates - width and height.
 
@@ -687,13 +681,13 @@ $$
 A_\text{probabilistic-reasoning} = 291, 094...742,026 \text{ }[\text{km}^2]
 $$
 
-...while the actual area of Germany is $$357,386$$ square kilometres - comfortably included in my predicted range.
+...while the actual area of Germany is 357,386 square kilometres - comfortably included in my predicted range.
 
-<p align="center">
- <img src="/assets/13/image_Area (probabilistic reasoning).png" alt="image5" style="zoom:70%;" />
-</p>
+<div class="imgcap">
+<img src="/assets/13/image_Area (probabilistic reasoning).png" width="80%">  
+  <div class="thecap"></div></div>
 
-Probabilistic reasoning gives us the values range which spans only over the ratio of $$2.55$$ (variance of the distribution). 
+Probabilistic reasoning gives us the values range which spans only over the ratio of 2.55 (variance of the distribution). 
 
 How did we produce such accurate estimate? This problem is hard to analyse directly because we do not know the accuracy in advance. But we can analyse a related problem: how divide-and-conquer reasoning increases our confidence in an estimate or, more precisely, decreases our uncertainty.
 

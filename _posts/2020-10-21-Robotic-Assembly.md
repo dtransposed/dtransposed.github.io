@@ -4,12 +4,15 @@ title: "Robotic Assembly Using Deep Reinforcement Learning"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [robotics, sim2real, deep reinforcement learning]
-image: tutorial_gif.gif
-
+excerpt: "The goal of this tutorial is to show how you can apply Deep RL to solve your own robotic challenge. By the time you finish the tutorial, you will understand how to create an end-to-end pipeline for training the robot in the simulation."
 ---
 ## Introduction
 
-<em>**Disclaimer**: This article is a cross post from [Pytorch Medium Blog Post](https://link.medium.com/gwm2y0JdPab ).</em>
+<div class="imgcap">
+<img src="/assets/img/tutorial_gif.gif"> 
+  <div class="thecap"></div></div>
+
+**Disclaimer**: This article is a cross post from [Pytorch Medium Blog Post](https://link.medium.com/gwm2y0JdPab).
 
 One of the most exciting advancements, that has pushed the frontier of the Artificial Intelligence (AI) in recent years, is Deep Reinforcement Learning (DRL). DRL belongs to the family of machine learning algorithms. It assumes that intelligent machines can learn from their actions similar to the way humans learn from experience. Over the recent years we could witness some impressive [real-world applications of DRL](https://neptune.ai/blog/reinforcement-learning-applications). The algorithms allowed for major progress especially in the field of robotics. If you are interested in learning more about DRL, we encourage you to get familiar with the exceptional [**Introduction to RL**](https://spinningup.openai.com/en/latest) by OpenAI. We believe this is the best place to start your adventure with DRL.
 
@@ -23,10 +26,13 @@ The accompanying code together with all the details of the implementation can be
 2. Setup **toolkit for robot learning research**, PyRep, from their [github repository](https://github.com/stepjam/PyRep). PyRep library is built on top of CoppeliaSim to facilitate prototyping in python. 
 
 3. Create **an environment for the RL agent**: It could be either a simulation or a real environment. We limit ourselves to simulation for faster prototyping and training. The agent interacts with the environment to collect experience. This allows it to learn a policy which maximizes the expected (discounted) sum of future rewards and hence solves the designed task. Most RL practitioners are familiar with the [OpenAI Gym environments](https://gym.openai.com/envs/#classic_control), a toolkit with toy environments used for developing and benchmarking reinforcement learning algorithms. However, our use case, robotic assembly task, is very specific. The goal is to train a robot to perform peg-in-hole insertion. This is why we created our simulation environment in [CoppeliaSim](https://www.coppeliarobotics.com). The simulator comes with various robot manipulators and grippers. For our tutorial, we picked UR5 robot with RG2 gripper (Figure 1).
-   ![](./images/sim_env.png) 
-
-   <em>Figure 1: UR5 manipulator with a peg attached to its gripper. The mating part is placed on the ground in the scene. CoppeliaSim caters to a variety of different robotic tasks. Feel free to come up with your own challenge and design your own simulation! [RLBench](https://github.com/stepjam/RLBench/tree/master/rlbench/task_ttms) (the robot learning benchmark and learning environment) also provides more off-the-shelf, advanced simulation environments. </em> 
-
+   
+<div class="imgcap">
+   <img src="/assets/12/sim_env.png"> 
+  <div class="thecap">Figure 1: UR5 manipulator with a peg attached to its gripper. The mating part is placed on the ground in the scene.</div></div>
+   
+   CoppeliaSim caters to a variety of different robotic tasks. Feel free to come up with your own challenge and design your own simulation! [RLBench](https://github.com/stepjam/RLBench/tree/master/rlbench/task_ttms) (the robot learning benchmark and learning environment) also provides more off-the-shelf, advanced simulation environments.
+   
 4. Create **a gym environment wrapped around the simulation scene**:  
 
 ```python
@@ -220,9 +226,9 @@ Catalyst provides an easy way to configure an agent using a `YAML` file. Additio
 
 In this tutorial, an off-policy, model-free RL algorithm [TD3](https://arxiv.org/pdf/1802.09477.pdf) is used. 
 
-![](../assets/12/blog_related_TD3.png) 
-
-<em>Figure 2: Architecture of the actor and critic in our TD3 algorithm.</em> 
+<div class="imgcap">
+<img src="/assets/12/blog_related_TD3.png"> 
+  <div class="thecap"></div>Figure 2: Architecture of the actor and critic in our TD3 algorithm.</div>
 
 As depicted in Figure 2, the actor and critic(s) (TD3 concurrently learns two value networks) are modelled as `agent` classes in Catalyst. We customize them and configure the config file by setting `agent: UR5Actor` and `agent: UR5StateActionCritic`. The details of the neural network architecture for both actor and critic(s) can be configured by further editing the `YAML` file.
 
@@ -252,7 +258,9 @@ activation: ReLU
 Once the actor and critic network architectures are defined, we are ready to start the training.
 
 ## Training
-![](../assets/12/training.png) <em> Figure 3: **Samplers** explore the environment and collect the data. **Trainer** uses the collected data to train a policy. Both the trainer and samplers are also configurable in `configs/config.yml`. The sampler starts with a random policy and after certain transitions, governed by `save_period` variable, the sampler updates its policy with the latest trainer weights. As the training progresses, the sampler keeps on gathering data collected by better policies while the trainer improves the policy until convergence. All the collected data is stored in a database. Source: [Sample Efficient Ensemble Learning with Catalyst.RL](https://arxiv.org/pdf/2003.14210.pdf). </em> 
+<div class="imgcap">
+<img src="/assets/12/training.png"> 
+  <div class="thecap">Figure 3: <b>Samplers</b> explore the environment and collect the data. <b>Trainer</b> uses the collected data to train a policy. Both the trainer and samplers are also configurable in `configs/config.yml`. The sampler starts with a random policy and after certain transitions, governed by `save_period` variable, the sampler updates its policy with the latest trainer weights. As the training progresses, the sampler keeps on gathering data collected by better policies while the trainer improves the policy until convergence. All the collected data is stored in a database. Source: <a href="https://arxiv.org/pdf/2003.14210.pdf">Sample Efficient Ensemble Learning with Catalyst.RL</a>. </div></div>
 
 Once the parameters of trainer and sampler (in the tutorial we use a single sampler) are configured, the training process can be started by launching `scripts/run-training.sh`. 
 
@@ -263,13 +271,16 @@ This opens a tmux session, which starts sampler, trainer, database, and tensorbo
 **You can launch the pipeline by running** `scripts/run-training.sh`. The moment the training starts, the agents progress can be also monitored visually in the CoppeliaSim simulation.
 
 ## Final Results
-![](../assets/12/graph_plot.001.png)
-<em>Figure 4: Reward per episode, collected over around 10k episodes.</em>
+<div class="imgcap">
+<img src="/assets/12/graph_plot.001.png"> 
+  <div class="thecap">Figure 4: Reward per episode, collected over around 10k episodes.</div></div>
 
 Once the policy converges, you can either test it (run inference) in the simulator or directly on the real robot. This is can be done by editing `configs/config_inference.yml` and passing the path of converged policy (.pth file) to `resume:` variable.  Finally, launch run `scripts/run-inference.sh`.
 
 ### **Inference on a real robot**  
-![](../assets/12/real_infer.gif)
+<div class="imgcap">
+<img src="/assets/12/real_infer.gif"> 
+  <div class="thecap"></div></div>
 
 ## About the Team
 This tutorial is based on the research done at [ARRIVAL](https://arrival.com/?gclid=CjwKCAjwnef6BRAgEiwAgv8mQby9ldRbN6itD_fEpRZ2TdgFBeKltK-EPSVPNUhvdoH2s8PnNAYMLxoC5OAQAvD_BwE) by the outstanding robotics team: 

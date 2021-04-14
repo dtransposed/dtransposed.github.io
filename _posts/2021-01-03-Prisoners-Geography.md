@@ -4,11 +4,15 @@ title: "Notes - Prisoners of Geography (Tim Marshall)"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [politics, geography]
-image: prisoners.jpeg
-
+excerpt: "Over the Christmas holidays I finally managed to finish one of my 2020 lockdown projects. After reading the (excellent) book by Tim Marshall, I summarized every chapter in the book."
 ---
 
-Over the christmas holidays I finally managed to finish one of my <em>2020</em> lockdown projects. After reading the (excellent) book by Tim Marshall, **"Prisoners of Geography"**, I discovered three important facts: 
+<div class="imgcap">
+<img src="/assets/img/prisoners.jpeg" width="70%"> 
+  <div class="thecap"></div></div>
+
+Over the Christmas holidays I finally managed to finish one of my <em>2020</em> lockdown projects. After reading the (excellent) book by Tim Marshall, **"Prisoners of Geography"**, I discovered three important facts: 
+
 - Tim Marshall is an **amazing** author. 
 - I have been much more ignorant about the global geopolitics than I thought. 
 - To build a solid and lost-lasting understanding of geopolitics I need to re-read most of the chapters, explore some topics on my own and take thorough notes.
@@ -17,10 +21,10 @@ So...those are fruits of my work: **the summary of every chapter in the book**. 
 
 I have also created a [.pdf version for easier reading](https://github.com/dtransposed/dtransposed.github.io/blob/master/assets/geography.pdf). Enjoy!
 
-# Russia
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="russia.jpg" style="zoom: 25%;"/>
-</p>
+## Russia
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1547448415-e9f5b28e570d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 - > "There is nothing which they admire so much as strength, and there is nothing for which they have less respect than for military weakness." - Churchill
 
 - > ' - Are you European or are you Asian? - Neither, I am Russian.'
@@ -29,7 +33,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
   
 
-  ## Geography
+  ### Geography
 
 - The Russian Federation consists of **21 countries**. Even though it is **twice the size of the USA**, its population is smaller than that of Nigeria or Pakistan. Nowadays, it takes about six days to cross the country.
 
@@ -49,7 +53,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
   
 
-  ## History
+  ### History
 
 - Russia dates back to the **9th century**. Back then it was known as Kievan Rus'. Continuous mongol raids forced the Slavic ancestors to flee to Moscow. Unfortunately, the Grand Principality of Muscovy was difficult to defend - it lacked natural fortifications such as mountains, deserts or big rivers. This is why **Ivan the Terrible** has decided to use *attack as a defence* and aggressively expanded the country to make sure that it gains a solid buffer zone (the hinterland). In the 16th century, the country had access to Ural Mountains, the Caspian Sea and Arctic Circle.
 
@@ -63,10 +67,10 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# China
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1517309230475-6736d926b979?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="china.jpg" style="zoom: 25%;" />
-</p>
+## China
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1517309230475-6736d926b979?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 - > China is a civilisation pretending to be a nation. - Lucian Pye.
 
 - **The Han people** make up 90 percent of the Chinese population and they dominate Chinese business and politics. **Mandarin** Chinese, which originated in the North, is the dominant language in the media and politics.
@@ -83,7 +87,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - Even though it was said that creating a railroad system in Tibet was impossible, the Chinese proved them wrong. Since 2006 **Lhasa, the capital of Tibet**, is connected with the rest of the China and the *Iron Roosters* bring Han people and the modern world directly to the ancient kingdom.
 
-## Geography
+### Geography
 
 - **North China Plain** is the birthplace of Chinese civilisation and one of the most densely populated areas in the world.
 - It is often true, that when China opens up to trade with the West, the coastland region prosper (Shanghai, Hong-Kong, Macau) but **the inland areas are neglected**.
@@ -92,7 +96,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - From the West we have the **Karakoram** mountain range and two crucial regions: Tibet and Xinjiang.
 - **Xinjiang** is an important buffer territory: it boarders 8 countries, is valuable for its oil and is a home to China's nuclear weapon testing sites. But the Muslim Uyghur people rebel against the wave of Han settlers. For the past several years China has been cracking down on religious minorities. 
 
-## History
+### History
 
 - The Chinese has used the ***attack as a defence*** strategy for millennia to become a country that it is now.
 - The erection of **the Great Wall of China** started in the 200 BCE during the reign of Quin dynasty. It took 2000 years to complete the project.
@@ -106,19 +110,20 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# USA
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1547050260-179ac224ba25?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80" alt="usa.jpg" style="zoom: 25%;" />
-</p>
+## USA
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1547050260-179ac224ba25?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80" width="70%"> 
+  <div class="thecap"></div></div>
+
 - > God has a special providence for fools, drunkards, and the United States of America. - Otto von Bismarck
 
 - One of the early principles of the USA was to **steer clear of permanent alliances** with any portion of the foreign world. This was the case until 1941, when the Americans intervened in the WWII.
 
-## Geography
+### Geography
 
 - The USA can be divided into **three regions**: East Coast Plain (fertile soil, short navigable rivers), the Great Plains (Mississippi river which start in Minneapolis and flows all the way down to the Gulf of Mexico) and the East Coast (Sierra Nevada mountains).
 
-## History
+### History
 
 - > There is on the globe one single spot, the possessor of which is our natural and habitual enemy. It is New Orleans. - Thomas Jefferson
 
@@ -140,7 +145,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - **Korean War**: Japan annexed Korea in 1910, and governed it as a colony until their defeat in WWII. After WWII, the Soviet Union occupied the north of the Korean Peninsula, and the USA occupied the southern part. Shortly afterwards, they each set up puppet governments in their parts of Korea. In 1950, North Korea attacked the South in an attempt to re-unite Korea. After initial success, they were almost completely defeated by the response of the US and other UN allies. However, China intervened on the side of North Korea and helped them fight to a stalemate, and after three years of war, the border was back roughly where it was in the beginning, and a truce was signed.
 
-## The Vietnam War
+### The Vietnam War
 
 - After communism took over and the USSR grew into power, they still had spheres of influence over areas of Asia. The perception is that they were **spreading communism across the globe and the US was determined to stop them** from 'creating' more communist nations or bolstering current ones.
 
@@ -150,7 +155,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - 20 years of off an on combat later the fighting between the original combatants were forgotten and it turned into US vs. Minh conflict with supporting roles from e.g. Australia.
 
-## Cuba
+### Cuba
 
 - Cuba was initially a Spanish colony. By the 1890s, it was fighting for its **independence from Spain**. The American press bristled with stories of Spanish cruelty against the glorious Cuban freedom fighters and urged the U.S. to step in. In 1898, an American ship, **the USS Maine**, was blown up in Havana Harbor. The American press hysterically declared it to be Spanish sabotage and the U.S. Congress finally declared **war on Spain**. Spain's dying colonial empire was no match for the newly industrialised U.S. and the Spanish lost the last of their New World colonies.
 
@@ -166,13 +171,13 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Europe
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="europe.jpg" style="zoom: 25%;" />
-</p>
+## Europe
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 > - For those who didn't live through this themselves and who especially now in the crisis are asking what benefits Europe's unity brings, the answer despite the unprecedented European period of peace lasting more than 65 years and despite the problems and difficulties we must still overcome is: peace. - Helmut Kohl
 
-## Geography
+### Geography
 
 - Europe's geography has given the Europeans a significant head start. Instead of fighting for survival, the Europeans could focus on **developing technology, philosophy and arts**.
 - Europe has barely any deserts or volcanoes. **Flooding or earthquakes are extremely rare**.
@@ -183,7 +188,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
   - **Protestants**, with their work ethics, propelled northern countries towards prosperity. This does not apply to catholic Bavaria, obviously.
   - The South has fewer coastal plains for agriculture. Southern countries more often **suffered from droughts and natural disasters.**
 
-## History
+### History
 
 - In contrast to e.g. the USA, Europe **grew organically over millennia** and remains divided between its geographical and linguistic regions.
 
@@ -191,16 +196,16 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Africa
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1497271679421-ce9c3d6a31da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80" alt="africa.jpeg" style="zoom: 25%;" />
-</p>
+## Africa
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1497271679421-ce9c3d6a31da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 
 > - History might have turned out differently if African armies, fed by barnyard-giraffe meat and backed by waves of cavalry mounted on huge rhinos, had swept into Europe to overrun its mutton-fed soldiers mounted on puny horses. - Jared Diamond
 
 > - Sometimes you will hear leaders say: I’m the only person who can hold this nation together. If that’s true then that leader has truly failed to build their nation. - Barack Obama
 
-## Geography
+### Geography
 
 - The geography of the Africa is **partially "responsible" for its status as one of the least developed continents**. The history shows that the innovation used to spread from the east to the west (or other way round), but not from the north to the south. Because the continent is in large enclosed by the Sahara desert, the Atlantic and Indian Ocean, **technological revolutions and new ideas could not reach Africa for thousands of years.** 
 - Africa is **much bigger compared to how it's depicted on the Mercator world map**. The Mercator projection inflates the size of objects away from the equator, so it is quite difficult to acknowledge how huge, in reality, Africa is (3x bigger than the USA).
@@ -210,7 +215,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - Because of its climate, Africa is the home to a **vast, virulent diseases** such as malaria, yellow fever or HIV.
 - Africa is both **blessed and coursed by the abundance of natural resources**. Even though the continent is richly endowed, it is mostly the outsiders who benefit from plundering them. 
 
-## History
+### History
 
 - Despite occasional trade between Arabs/Europeans and the Africans, the former **mostly kept the technology to themselves and took away whatever they found**, mainly natural resources and slaves.
 - Another reason why **no advanced trading networks were built across communities are local languages**. More than thousands of languages exists in Africa, but (before colonialism) there was no force, which could dominate a significant part of the continent. There was no "lingua franca". 
@@ -218,7 +223,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - There are **Chinese businessmen** everywhere in Africa. The third of China's import comes from Africa. China builds rail connection from Mombasa to the Nairobi. Because the Chinese **don't ask difficult questions about human rights or demand economic reform**, they are a very good trade partner for many African leaders.
 - **It's great to see that the state of the continent is improving**. The poverty has fallen, while healthcare and education levels have risen. Many African countries are English speaking, which is an advantage in the global economy. However, Africa is still very much **dependent on global prices for minerals and energy**. Manufacturing output levels remain close to where they were in the 1970s. The continent is not free from corruption or numerous hot (or merely frozen) conflicts.
 
-## Democratic Republic Of Kongo
+### Democratic Republic Of Kongo
 
 - One of the biggest failures of colonialism was the creation of the **Democratic Republic of Kongo** (DRC). In practice, it is neither democratic nor it is a republic. The **second largest country in Africa** (75 million people), bigger than Spain, France and Germany combined. It is the home of the second biggest **tropical rainforest**. Inhabited by about 200 ethnic groups. 
 - **The official language is French**. This is the legacy of the country being a Belgian colony from 1960 to 1966. Under the rule of the King Leopold (hence the name Léopoldville), the country, rich in natural resources, has been exploited by the colonialists.
@@ -226,7 +231,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - When Cold War ended nobody cared about Zaire (Congo). The country has but one great feature, the abundance of natural resources: cobalt, copper, diamonds, gold, silver, zinc, coal and manganese. **China buys approximately 50 percent of DRC's export, but the country does not get richer**. It has a development index 186 out of 187. Note, 18 countries in Africa are in the bottom of this list. Everybody wants the piece of DRC and it has no power to bite back.
 
 
-## African World War
+### African World War
 
 - The 1994 **Rwandan genocide** was the spark that lit the regional fire. In the Rwandan genocide, Hutu-power groups (called the *Interahamwe*) led mass killings of Tutsis and pro-peace Hutus, murdering 800,000 people in approximately 100 days.  In response, the Tutsi-led Rwandan Patriotic Front overthrew the Rwandan Hutu government. During and after the genocide, an estimated 2 million refugees, mostly Hutu, poured over Rwanda’s western border into the Congo.
 - The refugee camps in eastern Congo served **as de facto army bases for the exiled Interhamwe and Army for the Liberation of Rwanda**. They terrorised and robbed the local population until October 1996, when **Tutsi led an uprising to force the Rwandans out of the Congo, sparking the First Congo War**.
@@ -235,7 +240,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - **More than twenty fractions were involved in the war**. Conflict in numbers: tens of thousands deaths due to the conflict, six million deaths due to disease and malnutrition. About 50 percent of victims were children under the age of five. Many ongoing conflicts in Africa are the echoes of the African World War.
 
-## Egypt
+### Egypt
 
 - The Suez Canal controls **2.5 percent of the world's oil and 8 percent of entire trade**. Closing the canal would add several days of transit time to the overseas deliveries. 
 - The African rivers are in general not good for trade, but good for **hydroelectricity**.
@@ -244,18 +249,18 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - Despite the long history of conflicts with the Israel, the likely quarrel right now is with Ethiopia - **the issue over the Nile**. Ethiopia is Africa's water tower. Due to its geography, it can collect big amounts of water from the Nile - over twenty dams built. Recently, Ethiopia has built The Grand Ethiopian Renaissance Dam. Now it needs to be filled with water. 
 - As a result, **Egypt is worried about the reduced river flow in its part of the Nile**. It demands the guarantees from Ethiopia that water the flow will never be stopped.
 
-## Nigeria
+### Nigeria
 
 - **Subsaharan Africa's largest producer of oil**. While the south benefits from high quality oil, the north complains that profits are not shared suitable across all the regions. 
 - Nigeria is the most **important economy** in the Africa.
 - The branch of Islamic State, **Boko Haram**, is operating in the north of Nigeria. They form alliances with the jihadists up north in the Sahel region. They are known for terrorist activities which damage Nigeria's reputation abroad as a place to do business.
 
-## Angola
+### Angola
 
 - **Subsaharan Africa's second-largest oil producer**. Former Portuguese colony. 
 - After gaining the independence, Angola was devastated by the **civil war from 1975 to 2002**. Cuba and the Soviet Block supported the socialists. South Africa and the USA supported the insurgent anti-communist. 
 
-## RSA
+### RSA
 
 - **The Republic of South Africa** is the second biggest play on the continent in terms of economy.
 - It has access to two oceans, natural wealth (gold, silver and coal). It has very moderate climate and fertile land that allows for large scale food production. It is also not threatened by typical African diseases like malaria.
@@ -265,18 +270,18 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 
 
-# Middle East
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1565689477474-36ff3b63ac6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" alt="middle.jpg" style="zoom: 25%;" />
-</p>
+## Middle East
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1565689477474-36ff3b63ac6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 
-## Geography
+### Geography
 
 - **Greater Middle East** stretches from Mediterranean Sea to mountains of Iran. From the Black Sea to the Arabian Sea of Oman. 
 - It is **a fertile region** (Mesopotamia with Tiger and Euphrates rivers), also rich in oil and gas.
 - **Rub al-Khali**, vast desert region in the southern Arabian Peninsula, constituting the largest portion of the Arabian Desert.
 
-## History
+### History
 
 - **Ottoman Empire, which ruled those lands never tried too hard to divide local people into artificial countries**. Only after the fall of the Ottoman Empire, the British and French started to divide the land and create countries such as Syria, Lebanon, Iraq or Palestine (**Sykes-Picot agreement)**.
 - **Sunni Islam** (85 percent of all followers): orthodox, believed that the successor of the prophet ought to be chosen using Arab tribal traditions.
@@ -294,10 +299,10 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# India and Pakistan
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1516540268055-e1042f0b2c60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80" alt="india.jpg" style="zoom: 25%;" />
-</p>
+## India and Pakistan
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1516540268055-e1042f0b2c60?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 
 - > Pakistan has decided to bleed India with thousand cuts. It's the policy of Pakistan. The creation of Bangladesh, which happened with the help of India, was a very humiliating defeat for them, and they feel that this is one way of avenging that defeat. They are avenging this defeat by causing casualties to our security forces and creating mayhem amongst the people. - General Bipin Rawat
 
@@ -305,12 +310,12 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - The official language of Pakistan is **Urdu**, the mother tongue of all the people who fled India in 1947.
 
-## Geography
+### Geography
 
 - The problem of Bangladesh is not that has little access to the sea, but **the sea has too much access to Bangladesh** (devastating floods).
 - The Kashmir issue is partially one of national pride, but it is also strategic. Full control of Kashmir would give India **a window into Central Asia and a boarder with Afghanistan**. It would also deny Pakistan a boarder with China and thus diminish the usefulness of a Chinese-Pakistani relationship.,
 
-## History
+### History
 
 - When India was partitioned between Hindu and Muslim areas, there existed quite a few nominally independent areas called the Princely States, who were in theory given the choice of remaining independent or joining India or Pakistan. In practice varying degrees of coercion were employed to make them join one of the countries, up to and including an armed invasion by India in the case of Hyderabad. **The Kashmir had a Muslim majority so Pakistan felt it should be part of it, but Kashmir's ruler joined India**. Pakistan invaded and started the first of several wars.
 
@@ -324,15 +329,16 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# South America
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1521836597172-87a550ef7210?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="peru.jpg" style="zoom: 25%;" />
-</p>
-## Geography
+## South America
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1521836597172-87a550ef7210?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
+
+### Geography
 
 - South America is a living proof, that **if the geography is against you, then you are bound to have limited economic success**. The continent has just few deep, natural harbours.
 
-## History
+### History
 
 - It is believed that the first human populations of South America **either arrived from Asia into North America via the Bering Land Bridge**, and migrated southwards or alternatively from Polynesia across the Pacific.
 - The USA developed very quickly due to the fact, that small landholders used to own the land. However, in the South America, there were **powerful landowners and serfs - this is led to significant inequality**. Also, the first European settlers stayed near the coast. They built roads to connect the interior with the coastal capitals, but **neglected the connection between the towns in the heart of the continent**. This resulted in the majority of wealth being transferred from each region to the coast.
@@ -343,18 +349,18 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - The basic idea of the **Monroe Doctrine** is that the United States has historically had a special relationship with countries in our hemisphere, and an obligation to intervene if those countries were threatened by European expansion or colonialism.
 - Even though France, the Netherlands, and the UK still have nominal colonies in the hemisphere, the US is not going to intervene in these territories, nor will they ever under any foreseeable circumstances. This is why the US did not take a real side in the Falkland island war. The islands were invaded by Argentina, an act of aggression which they can't condone but can't side with the UK as it would be completely **contrary to the Monroe doctrine if the US sided with a European power against a Latin American Country**.
 
-## Bolivia
+### Bolivia
 
 - After loosing in the War of the Pacific (over guano and saltpeter discovered in the Atacama Desert) in 1904, **Bolivia became  landlocked**. Up to this day the relationships between Chile and Bolivia remain hostile. 
 - **Chile is in dire need of a stable gas supply and Bolivia possesses vast gas reserves**. However, it is very unpopular in Chile to speak about buying natural resources from the old enemy. Even though some Bolivian leaders (e.g. Evo Morales) have been proposing to strike a deal, the pride of the Chileans does not let them buy gas from the Bolivians.
 
-## Panama 
+### Panama 
 
 - Panama is famous for the **Panama Canal** (1914), which connects the Atlantic Ocean with the Pacific Ocean. 
 - Even though there were plans to build a **second canal in Nicaragua**, the investment seems to have failed. Initial agreement between the president Daniel Ortega and Chinese billionaire Wang Jing stalled. There are rumours of insufficient financing and overall abandonment of the project.
 - Because of very good relationships with the USA, some can accuse the country of being an ***American lackey***.
 
-## Brazil 
+### Brazil 
 
 - Brazil can be seen as the most **powerful country on the continent**. It is almost as big as the USA.
 - The future of the **Amazon rainforest** seems bleak. It falls victim to <em>slash-and-burn agriculture</em>, a method of growing food in which farmers and cattle ranchers deliberately cut down and burn forestland to clear it for crops and livestock. However, once the rainforest is cut it will not grow back.
@@ -363,7 +369,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - 25 percent of Brazilians live in **favela slums**.
 - To develop the interior of the country, **the capital of Brazil has been moved from Rio de Janeiro to Brasilia**. 
 
-## Argentina
+### Argentina
 
 - **Runner-up in the competition of the most powerful country on the continent**. 
 - It can boast with a quality of land **comparable to the European countries**. It actually used to be richer than France or Italy in the past, but lost its wealth due to mismanagement.
@@ -372,10 +378,10 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# The Arctic
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1514125067037-8e669dd37638?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="arctic.jpeg" style="zoom: 25%;" />
-</p>
+## The Arctic
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1514125067037-8e669dd37638?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 > - Offshore fields especially in the Arctic, are without any exaggeration, our strategic reserve for the twenty-first century. - Vladimir Putin
 
 > - They have cities in arctics, we only have villages. - Melissa Bert
@@ -387,7 +393,7 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 - As the ice slowly melts, we **are getting access to natural oil and gas reserves of the Arctic**. ExxonMobil, Shell, Rosneft are all applying for licenses to operate in this region. It would be difficult to work in this harsh environment (endless nights, frozen sea, waves forty feet high). We should be concern about the presence of the companies in the Arctic. There is a thread that they will not be concerned about potential environmental consequences and may accelerate the climate changes.
 - There are **many legal disputes over the governance of the Arctic**. However, the colonisation of the Arctic will be different from e.g. *race to conquer* Africa. This new race has rules a formula and a forum for decision making 
 
-## Russia vs the USA
+### Russia vs the USA
 
 - **Russia has the heaviest presence in the polar region**. Very eager to establish dominance in the north. Planted a rust-proof titanium Russian flag on the seabed in 2007 as a statement of their ambition. 
 - There have been claim that Arctic Ocean should be renamed to **Russian Ocean** (Lomonosov Ridge argument). They are claims to Spitzbergen (Svalbard Islands). Norwegian islands are densely inhabited by Russian coal-mine workers.
@@ -397,10 +403,10 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# Korea and Japan
-<p align="center">
-  <img src="https://images.unsplash.com/photo-1552183417-6c68fe4047d2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="korea.jpg" style="zoom: 25%;" />
-</p>
+## Korea and Japan
+<div class="imgcap">
+<img src="https://images.unsplash.com/photo-1552183417-6c68fe4047d2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" width="70%"> 
+  <div class="thecap"></div></div>
 
 - The recent relationship between both Koreas, Japan and the USA has resembled a long-lasting Mexican stand-off. **Solving the North Korean problem may have properties of a self-fulfilling prophecy**. One on hand world leaders should intervene against the regime. However, they are aware that the collapse of North Korea will, without any doubt, cause huge chaos to every party involved.
 
@@ -409,21 +415,21 @@ I have also created a [.pdf version for easier reading](https://github.com/dtran
 
 - Shortly after, both Americans and Soviets started loosing interest in the peninsula. This is why in 1950, North Korea (backed by communist China) decided to march south with the ambition to reunite Korea under the communist reign. However, losing South Korea was not an option for Americans. They could not afford to show any sign of weakness in the face of the Cold War. They quickly stopped the North Korean army and regained south territory. **Technically, both Koreas are still at war - the treaty was never signed.** 
 
-## South Korea
+### South Korea
 
 - **Seoul, the capital of South Korea is located just 30 miles away from the DMZ**. It is home to half of the South Korean population (50 million in total). The proximity to North Korea is why South Korea strives for relative peace. It is afraid of 100 000 artillery pieces aimed at all times directly at the city. Additionally, it is believed that North Korea can quickly move their troops into the city through secret, underground tunnels. Finally, about 100 000 undercover agents (sleeper cells) are stationing in the city.
 
-## North Korea
+### North Korea
 
 - **The least democratic state in the world**, famous for its combination of fierce nationalism, communism and fierce self-reliance. Population of about 25 million people. It is being estimated that 150 000 political prisoners are being held in the "re-education" camps on the North Korean territory. North Korean army is one of the biggest in the world. Its economy is 80 times weaker than South Korean's.
 
 - Even if the North agreed to *surrender* and join South Korea,  it would be extremely difficult to merge the advanced, rich South with the poor, underdeveloped North. 
 
-## China
+### China
 
 - **China's goal is to keep North Korea stable for two reasons**. Firstly, it does not want to become a home to millions of refugees fleeing from the Korean regime. Secondly, China is North Korea's only trade partner. 
 
-## Japan
+### Japan
 
 - Japan has been always **conveniently separated from the outside world**. However, its geography is at the same time problematic. Japan is a mountainous country, where it is difficult to farm or establish river trade. It has also very little natural resources. This is why it remains one of the biggest importers of oil and natural gas.
 

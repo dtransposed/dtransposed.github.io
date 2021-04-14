@@ -1,50 +1,51 @@
 ---
 layout: post
-title: "Practical tutorial- Robot localization using Hidden Markov Models"
+comments: true
+title: "Tutorial- Robot localization using Hidden Markov Models"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [AI, hidden markov model, tutorial, python, programming, psychology]
-image: warehouse.jpg
+excerpt: "The goal of this tutorial is to show how we can use Hidden Markov Models to tackle the problem of robotic localization. To illustrate the method, I will use the scenario of a mobile robot operating in a warehouse."
 ---
 
-In year 2003 the team of scientists from the Carnegie Mellon university [has created a mobile robot](https://www.cs.cmu.edu/~thrun/3D/mines/groundhog/index.html) called <em>Groundhog</em>, which could explore and create the map of an abandoned coal mine. The rover explored tunnels, which were too toxic for people to enter and where oxygen levels were too low for humans to remain concious. The task was not easy: navigate in the environment, which the robot has not seen before, and simultanously discover and create a map of those unknown tunnels.
+In year 2003 the team of scientists from the Carnegie Mellon university [has created a mobile robot](https://www.cs.cmu.edu/~thrun/3D/mines/groundhog/index.html) called <em>Groundhog</em>, which could explore and create the map of an abandoned coal mine. The rover explored tunnels, which were too toxic for people to enter and where oxygen levels were too low for humans to remain concious. The task was not easy: navigate in the environment, which the robot has not seen before, and simultaneously discover and create a map of those unknown tunnels.
 
-{:refdef: style="text-align: center;"}
-![alt text](https://www.cs.cmu.edu/~thrun/3D/mines/groundhog/full/mine_img_290.jpg ){:height="80%" width="80%"}
-{: refdef}
-<em>The groundhog robot enters the abandoned coal mine. (source: www.cs.cmu.edu)</em>
+<div class="imgcap">
+<img src="https://www.cs.cmu.edu/~thrun/3D/mines/groundhog/full/mine_img_290.jpg" width="70%">
+<div class="thecap">The groundhog robot enters the abandoned coal mine. (source: www.cs.cmu.edu)</div></div>
 
 Fifteen years later, the problem of constructing a map of an unknown environment, while keeping track of agent's location within it (the so called SLAM task- Simultaneous Localization And Mapping), is still being scrutinized by the researchers. This notion is not only used in the fields of self-driving cars or rovers, but is also present in case of domestic robots such as iRobot's Roomba. In the year 2017 Amazon [has doubled the number of its robotic fleet](https://www.technologyreview.com/the-download/609672/amazons-investment-in-robots-is-eliminating-human-jobs/). So far, the robo-workers are there to move packages through the gigantic warehouses, but it is only a matter of time until advanced robots will work hand in hand with actual people, performing more complicated tasks. This shows that given current state of the technology, the ability for robots to understand their position in the environment is indispensable.
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/104610626--sites-default-files-images-104609106-chuck.1910x1000.jpg )
-{: refdef}
-<em>Chuck, a robotic warehouse assistant. Perhaps in the near future warehouses will be operated only by sophisticated robots... (source: www.cnbc.com)</em>
+<div class="imgcap">
+<img src="/assets/2/104610626--sites-default-files-images-104609106-chuck.1910x1000.jpg" width="70%">
+<div class="thecap">Chuck, a robotic warehouse assistant. Perhaps in the near future warehouses will be operated only by sophisticated robots... (source: www.cnbc.com)</div></div>
 
 The goal of this tutorial is to tackle a simple case of mobile robot localization problem using Hidden Markov Models. Let's use an example of a mobile robot in a warehouse. The agent is randomly placed in an environment and we, its supervisors, cannot observe what happens in the room. The only information we receive are the sensor readings from the robot. 
 
-## Table of Contents
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
 
-1. Case formulation
-	1. Environment
-	2. Sensors
-	3. Hidden Markov Models
-2. The solution
-	1. Transition model
-	2. Initial state
-	3. Sensor model
-	4. Results
-	5. Alternative possible solutions
-	6. The code in Python
+- [Case formulation](#case-formulation)
+    - [Environment](#environment)
+    - [Sensors](#sensors)
+    - [Hidden Markov Models](#hidden-markov-models)
+- [Let's solve the problem!](#lets-solve-the-problem)
+    - [Transition model](#transition-model)
+    - [Initial state](#initial-state)
+    - [Sensor model](#sensor-model)
+    - [Results](#results)
+    - [Alternative possible solutions](#alternative-possible-solutions)
+    - [The code in Python](#the-code-in-python)
+
+<!-- markdown-toc end -->
 
 ## Case formulation
 
 >"An agent is anything that can be viewed as perceiving its environment through sensors and acting upon that environment through effectors" 
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/agent.png "Example")
-{: refdef}
-<em>Source: Artificial Intelligence: A Modern Approach (S. Russell and P. Novig)</em>
+<div class="imgcap">
+<img src="/assets/2/agent.png" width="60%">
+<div class="thecap"> Source: Artificial Intelligence: A Modern Approach (S. Russell and P. Novig)</div></div>
 
 To fully define a case we need to specify two pieces of information: 
 * environment (the warehouse), 
@@ -52,29 +53,26 @@ To fully define a case we need to specify two pieces of information:
 
 
 ### Environment
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/29.png){:height="80%" width="80%"}
-{: refdef}
-<em>Figure 1: Environment of the robot </em>
+<div class="imgcap">
+<img src="/assets/2/29.png" width="60%">
+<div class="thecap">Figure 1: Environment of the robot</div></div>
 
 The agent can move within an area of 6 square tiles. In the mini-warehouse there is one shelf located between tiles $$S_1$$ and $$S_6$$ and a second shelf between $$S_6$$ and $$S_5$$. In the technical jargon one may say, that the environment of the agent consists of six descrete states. The time is also descrete. At each subsequent time step the robot is programmed to change its position with a probability of 80% and moves randomly to a different neighboring tile. As soon as the robot makes a move, we receive four readings from the sensing system.
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/28.png "Example"){:height="100%" width="100%"}
-{: refdef}
-<em>Figure 2: Probabilistic graphical model </em>
+<div class="imgcap">
+<img src="/assets/2/28.png" width="60%">
+<div class="thecap">Figure 2: Probabilistic graphical model</div></div>
 
 ### Sensors
-Just as we humans can localizate ourselves using senses, robots use sensors. Our agent is equipped with the sensing system composed of a compass and a proximity sensor, which detects obstacles in four directions: north, south, east and west. The sensor values are conditionally independent given the position of the robot. Moreover, the device is not perfect, the sensor has an error rate of $$ e=25% $$.
+Just as we humans can localizate ourselves using senses, robots use sensors. Our agent is equipped with the sensing system composed of a compass and a proximity sensor, which detects obstacles in four directions: north, south, east and west. The sensor values are conditionally independent given the position of the robot. Moreover, the device is not perfect, the sensor has an error rate of e=25%.
 
 ### Hidden Markov Models
 The Hidden Markov Model (HMM) is a simple way to model sequential data. There exists some state $$X$$ that changes over time. It is assumed that this state at time <em>t</em> depends only on previous state in time <em>t-1</em> and not on the events that occurred before ( why
 known as Markov property). We wish to estimate this state $$X$$. Unfortunately, we cannot directly observe it, the state is not directly visible (hidden). However, we can observe a piece of information correlated with the state, the evidence $$E$$, which helps us to estimate $$X$$.
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/31.png "Example"){:height="80%" width="80%"}
-{: refdef}
-<em>Figure 3: Temporal evolution of a hidden Markov model </em>
+<div class="imgcap">
+<img src="/assets/2/31.png" width="60%">
+<div class="thecap">Figure 3: Temporal evolution of a hidden Markov model</div></div>
 
 Our model consists of hidden states $$X_0,X_1,X_2,..., X_{t-2}, X_{t-1},X_t$$ (the unknown location of a robot in time) and known pieces of evidence $$E_1, E_2, ..., E_{t-2},E_{t-1},E_t$$ (the subsequent readings from the sensor).
 
@@ -88,7 +86,7 @@ $${f_{1:t}= \alpha*O_t*T*f_{1:t-1}}$$
 * prediction- filtering without evidence. We make a guess about the $$X_t$$knowing only state $$X_{t-1}$$. 
 
  $${f_{1:t}= \alpha*T*f_{1:t-1}}$$ 
- 
+
 where:
 * $${f_{1:t}}$$ current probability vector in time <em>t</em>
 * $${f_{1:t-1}}$$ previous probability vector in time <em>t-1</em>
@@ -158,11 +156,11 @@ $$ f_{0}=\begin{pmatrix}
 Sensor model consists out of evidence, which allows to make inference about the agent's position in the environment. 
 In the first time step robot detects a wall in directions: south, west and east. How can we express this information in the mathematical notation? We want to find the answer to the question: given that we are in state <em>i</em>, what is the probability that the sensor returns reading $$ {E=j} $$? That is:
 
-$$ {O_{i,j}=P(E=j| X=i)=(1-e)^{4-d}*e^d}$$
+$$ {O_{i,j}=P(E=j| X=i)=(1-e)^{4-d}\cdot e^d}$$
 
 where <em>e</em> is an error rate of a sensor and <em>d</em> is the discrepancy- a number of signals that are different- between the true values for tile <em>i</em> and the actual reading. This means that the probability that a sensor got all directions right is $$ {(1-e)^{4}}$$ and probability of getting them all wrong is $${e^4}$$. Assume that the sensor returns reading SWE at time step 1 while robot is in state 2. It detects an eastern wall, but does not take into account the northern wall and reports obstacles in directions south and east, which are actually not there. This means that one out of four sensors returns a correct measurement, so:
 
-$$ {P(E_1=SWE| X_1=2)=(1-0.25)^{3}*0.25=0.11}$$
+$$ {P(E_1=SWE| X_1=2)=(1-0.25)^{3}\cdot0.25=0.11}$$
 
 Let us assume the following sequence of readings for the robot: SWE, NW, N, NE, SWE. Each piece of evidence is represented as a diagonal matrix O of a same shape as the transition matrix. For a reading in NW direction, the observation matrix looks as follows:
 
@@ -184,24 +182,23 @@ $$ O_{NW}\mathbf = \begin{pmatrix}
     			\end{pmatrix} $$
 
 ## Results
-{:refdef: style="text-align: center;"}
-![Figure 5: Filtering in HMM for 5 time steps](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/filtering.gif "Figure 5: Filtering in HMM for 5 time steps")
-{: refdef}
-<em>Figure 5: Filtering in HMM for 5 time steps </em>
+<div class="imgcap">
+<img src="/assets/2/filtering.gif">
+<div class="thecap">Figure 4: Filtering in HMM for 5 time steps</div></div>
 
-Using the code in Python we may create different scenarios for the robot. We assume, that evidence gathered by the sensor are readings in directions SWE, NW, N, NE, SWE. Figure 5 shows us the probability plots for 5 timesteps. The <em>xy</em> plane is the grid of the warehouse while the <em>z</em> axis indicates the probability of the agent being present in the given tile in each time step. The size of each bar in the chart corresponds to the probability that the robot is at that location. In any time step the algorithm makes inference about the probability of the agent being in a given tile. 
+Using the code in Python we may create different scenarios for the robot. We assume, that evidence gathered by the sensor are readings in directions SWE, NW, N, NE, SWE. Figure 4 shows us the probability plots for 5 timesteps. The <em>xy</em> plane is the grid of the warehouse while the <em>z</em> axis indicates the probability of the agent being present in the given tile in each time step. The size of each bar in the chart corresponds to the probability that the robot is at that location. In any time step the algorithm makes inference about the probability of the agent being in a given tile. 
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/30.png "Example"){:height="80%" width="80%"}
-{: refdef}
-<em>Figure 6: The inferred path of the robot </em>
+<div class="imgcap">
+<img src="/assets/2/30.png" width="70%">
+<div class="thecap">Figure 5:  The inferred path of the robot</div></div>
 
 We can see, that given our sensor data, we may deduce the most possible locationin every time step. The robot probably starts his adventure in state 1, then advances to state 2, state 3, state 4 and approaches the shelf in state 5. Although, the error rate of 0.25 is pretty high, the algorithm manages to deliver statisfying results (given a fairly simple environment).
 
-{:refdef: style="text-align: center;"}
-![alt text](https://raw.githubusercontent.com/dtransposed/dtransposed.github.io/master/assets/2/prediction.gif "Example")
-{: refdef}
-<em>Figure 7: Filtering in HMM for time steps 1,2,3 and then prediction for 4,5 </em>
+<div class="imgcap">
+<img src="/assets/2/prediction.gif">
+<div class="thecap">Figure 6: Filtering in HMM for time steps 1,2,3 and then prediction for 4,5</div></div>
+
+
 
 Here, we try to estimate where the robot might be, while lacking the evidence for time steps 4 and 5. When the agent fails to deliver the evidence, we predict its position basing solely on its previous state. That is why our model evaluates that in time step 4, the robot has very high probability of being in tiles neighbouring to the state in the time step 3. Then, in time step 5, the model is pretty confident that the robot returns to $$S_3$$, however it gives quite high probabilities to all the other scenarios.
 
@@ -300,4 +297,3 @@ Model2.plot_state()
 prediction_2 = Model2.prediction()
 Model2.plot_state()
 ```
-<em>Source of the cover image: http://www.bleum.com</em>

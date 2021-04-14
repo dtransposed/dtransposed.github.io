@@ -4,10 +4,11 @@ title: "Research Paper Summary - The AI Economist: Improving Equality and Produc
 author: "Damian Bogunowicz"
 categories: blog
 tags: [AI, economics, deep reinforcement learning]
-image: ai-economist.jpg
-
+excerpt: "The AI Economist, is a study on how to improve economic design through the AI-driven simulation. The goal of the study is to optimize productivity and social equality of the economy."
 ---
-<em> All the figures in this post come from the research publication: The AI Economist: Improving Equality and Productivity with AI-Driven Tax Policies (Zheng et al. 2020)</em>
+<div class="imgcap">
+<img src="/assets/img/ai-economist.jpg"> 
+<div class="thecap">All the figures in this post come from the research publication: The AI Economist: Improving Equality and Productivity with AI-Driven Tax Policies (Zheng et al. 2020)</div></div>
 
 It is really refreshing to see that machine learning, especially reinforcement learning, can be successfully used in social sciences. The recent research from the Salesforce team, the [AI Economist](https://arxiv.org/abs/2004.13332), is a study on how to improve economic design through the AI-driven simulation. The goal of the study is to **optimise productivity and social equality of the economy**. The AI framework has been designed to simulate millions of years of economies to help economists, governments and others design tax policies that strive for fair social outcomes in the real world. 
 
@@ -18,9 +19,12 @@ There are two types of actors in the economic simulation: **AI Citizens** (membe
 ## The AI Citizens
 
 ### Gather-and-Build Game
-<p align="center">
-    <img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.10.07.png" width="400">
-</p>
+<div class="imgcap">
+<img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.10.07.png" width="60%"> 
+  <div class="thecap"></div></div>
+
+
+
 The rules of the modelled world, the **Gather-and-Build Game**, are quite simple. One could even argue that the simplicity of the simulation is the one of the biggest flaws of the study. Obviously, the hand-designed environments are bound to miss many of the subtleties of economics.
 
 The community consists of four citizens. Each of the citizens can choose between four actions: 
@@ -58,9 +62,12 @@ Imagine it's a hot, summer day and you lucky to be participate in all-you-can ea
 - You will probably refuse to eat the tenth ice-cream - otherwise you will get quite queasy (negative utility - you don't even want to any more ice-cream!)
 
 This law is implemented in our agents behaviour through the function $$crra$$. In the context of our simulation, we can substitute ice-cream with houses. We can see that the utility grows initially with the amount of houses built by the agent, but at some point it starts to decline.
-<p align="center">
-    <img src="/assets/11/agent_utility.png" width="300">
-</p>
+<div class="imgcap">
+<img src="/assets/11/agent_utility.png" width="60%"> 
+  <div class="thecap"></div></div>
+
+
+
 The goal of the citizens is to maximum the sum of their total discounted future utility:
 
 $$
@@ -82,9 +89,10 @@ $$
 
 ### Example of an Episode
 
-<p align="center">
-    <img src="https://blog.einstein.ai/content/images/2020/04/economist-ai.gif">
-</p>
+<div class="imgcap">
+<img src="https://blog.einstein.ai/content/images/2020/04/economist-ai.gif" width="100%"> 
+  <div class="thecap"></div></div>
+
 
 The figure above show the economic simulation in which four agents collect and trade resources, build houses and earn income. **Red** and **orange** agents were endowed with very low house-building skill, so they specialise in collecting and trading wood/stones for coins. The **teal** agent seems to be the jack of all trades, building moderate amounts of houses and collecting some resources. **Dark blue** agent (high house-building skill) actively buys most of the resources from the market and floods the world with its houses. 
 
@@ -117,7 +125,9 @@ where $$\mathbf{1}[ z > m_{b+1}]$$ is an indicator function for whether $$z$$ sa
 
 ### AI Government's Goal
 
-![](/assets/11/Zrzut ekranu 2020-10-11 o 14.11.23.png)
+<div class="imgcap">
+<img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.11.23.png" width="100%"> 
+<div class="thecap"></div></div>
 
 
 The AI government's goal is to maximise the social warfare of the community, defined by the **social welfare function** $$swf$$. The social welfare function can be defined in many ways, but in this paper the authors decide to tackle the fundamental trade-off between **income equality** and **productivity**. 
@@ -126,10 +136,9 @@ The AI government's goal is to maximise the social warfare of the community, def
 
 - If productivity is high (essentially unregulated, free market), the most productive members thrive, but agents who are less fortunate (e.g. are "born" with low skills) barely make a living.
 
-<p align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/GINI_index_World_Bank_up_to_2018.png/2880px-GINI_index_World_Bank_up_to_2018.png" width="400">
-</p>
-<em>World map of the GINI coefficients by country. Based on World Bank data ranging from 1992 to 2018. Source: wikipedia</em>
+<div class="imgcap">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/GINI_index_World_Bank_up_to_2018.png/2880px-GINI_index_World_Bank_up_to_2018.png" width="100%">
+<div class="thecap">World map of the GINI coefficients by country. Based on World Bank data ranging from 1992 to 2018. Source: wikipedia</div></div>
 
 The economic quantity which gauges of economic inequality is the Gini index. Therefore, to express the inequality we can use the compliment of the Gini index computed for the toy community.
 
@@ -174,12 +183,15 @@ The authors report that the joint optimisation of the AI citizens and AI Governm
 - **Phase 2**: the training is continued, but community is gently introduced to the AI Government and the concept of income redistribution. To avoid unstable learning dynamics created by the sudden introduction of taxes, the marginal tax rates are linearly annealed from 10% to 100%.
 
 ## The AI Taxation Policy
-
-![](/assets/11/Zrzut ekranu 2020-10-11 o 14.11.47.png)
+<div class="imgcap">
+<img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.11.47.png" width="100%">
+<div class="thecap"></div></div>
 
 The figure illustrates **the comparison of overall economic outcomes**. The AI Economist achieves significantly better equality-productivity trade-offs compared to the baseline models: **free-market economy, US-Fed tax policy and Saez formula (model of optimal income tax rate developed by [Emmanuel Saez (2001)](https://eml.berkeley.edu/~saez/derive.pdf)**. Note, that the AI Economist, while initially being very socialistic (prefers equality to productivity), finally converges to the optimal equilibrium point, where those two objectives are **relatively balanced**.
 
-![](/assets/11/Zrzut ekranu 2020-10-11 o 14.12.14.png)
+<div class="imgcap">
+<img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.12.14.png" width="100%">
+<div class="thecap"></div></div>
 
 The figure shows **the marginal taxes rates** for each of the baselines (except for the free-market where taxes do not exist). On average, **the AI Economist sets a higher top tax rate than both of the US Federal and Saez tax schedules**. It seems that it favours two groups of citizens: agents which earn little (but no too little) and the "middle-class". Those two groups benefit from sharply reduced tax rates. Maybe the AI gives us a hint, that we should keep the taxes low for the middle class? Or that we shall tax the poorest to incentivise them to work? 
 
@@ -189,7 +201,9 @@ Truth be told, I am quite sceptical about saying that the AI Government has "cam
 
 The researchers conclude the paper with an interesting study. They employ **human participants** on Amazon Mechanical Turk platform to investigate whether AI Economist tax policy can **transfer to economic activity of real people without extensive fine-tuning**. Human participants play the Gather-and-Build Game with the goal of maximising their wealth, while being the subject to baseline and AI Economist taxation policies. 
 
-![](/assets/11/Zrzut ekranu 2020-10-11 o 14.12.29.png)
+<div class="imgcap">
+<img src="/assets/11/Zrzut ekranu 2020-10-11 o 14.12.29.png" width="100%">
+<div class="thecap"></div></div>
 
 The figure above presents the results of tax policy transfer for game with 58 human participants in 51 episodes. Each episode involves four participants. The AI Economist achieves competitive equality-productivity trade-offs with the baselines, and statistically significantly outperforms the free market.
 

@@ -5,11 +5,8 @@ title: "Research Paper Summary - What Matters In On-Policy Reinforcement Learnin
 author: "Damian Bogunowicz"
 categories: blog
 tags: [reinforcement learning, machine learning, summary, research]
-image: whatmatters.png
-
+excerpt: "How different design choices affect the final performance of an RL agent? The key take-aways from this paper may be hugely beneficial for any machine learning engineer who dips his toes in the field of RL."
 ---
-
-
 Recent paper from Google Brain team, [What Matters In On-Policy Reinforcement Learning? A Large-Scale Empirical Study](https://arxiv.org/abs/2006.05990), tackles one of the notoriously neglected problems in deep Reinforcement Learning (deep RL). I believe this is a pain point both for RL researchers and engineers: 
 
 > Out of dozens of RL algorithm hyperparameters, which choices are actually important for the performance of the agent?
@@ -22,7 +19,7 @@ Kudos for the Google Brain Team for compiling sort of a "check list" in their re
 
 The reader can choose to quickly scam through the write-up to extract those "rules of thumb" but I recommend to read the source publication thoroughly. The study is really well documented with all the details explained.
 
-# Introduction 
+## Introduction 
 
 I believe that the publication may resonate with many engineers out there. Once it has been decided that our particular problem can be solved using deep RL, the first step is usually to set up the RL scaffolding. Here, one could either reimplement an algorithm from the paper, along with the necessary infrastructure or just use one of the available RL frameworks: be it [Catalyst](https://github.com/catalyst-team/catalyst), [TF-Agents](https://github.com/tensorflow/agents) , [Acme](https://deepmind.com/research/publications/Acme)  or [Ray](https://github.com/ray-project/ray). The second step is to design your environment. It will change over time and enrich our agent with the experience. Finally, the third step: run python script, monitor the training and tap yourself on the back. Tensorboard displays increasing average reward over time and our agent, slowly but surely, appears to acquire some form of intelligence...
 
@@ -38,7 +35,7 @@ Point 3. Brings me to the the paper [Implementation Matters in Deep Policy Gradi
 
 **All those aforementioned issues could be (partially) avoided if we had a sound understanding of the importance of various hyperparameters**. If we could draw some general conclusions about the significance of a particular configurations perhaps we could be more aware of its consequences on our RL system. Additionally, we could be less prone to mistaking more favourable hyperparameter configuration for superior algorithm design.
 
-# Experiments
+## Experiments
 
 For benchmarking the researchers employ five, diverse OpenAI Gym environments: Hopper-v1, Walker2d-v1, HalfCheetah-v1, Ant-v1 and Humanoid-v1. 
 
@@ -61,7 +58,7 @@ They run about 250 000 experiments to investigate design choices from eight them
 
 1. In the on-policy setting, PPO policy loss is a recommendable default choice for majority of environments. 
 
-2. The PPO clipping threshold should be set by default to $$0.25$$ and then tuned.
+2. The PPO clipping threshold should be set by default to 0.25 and then tuned.
 
 ## Networks Architecture
 
@@ -69,7 +66,7 @@ They run about 250 000 experiments to investigate design choices from eight them
 
 **Takeaways:**
 
-1. Initialize the last policy layer with $$100\times$$ smaller weights. 
+1. Initialize the last policy layer with 100x smaller weights. 
 
 2. Use<em> softplus</em> to transform network input into action standard deviation and add a (negative) offset to its input to decrease the initial standard deviations of actions. Tune this offset if possible. 
 
@@ -141,7 +138,7 @@ The experiments show that it is not important how we handle <em>abandoned</em> e
 
 **Takeaway:**
 
-1. As a default, use Adam optimizer with momentum $$\beta_{1}=0.9$$ . Start with the default learning rate $$0.0003$$, but be sure to adjust it to your problem. 
+1. As a default, use Adam optimizer with momentum $$\beta_{1}=0.9$$ . Start with the default learning rate 0.0003, but be sure to adjust it to your problem. 
 
 2. Linear decaying may slightly improve the performance. 
 
@@ -155,6 +152,6 @@ The experiments show that it is not important how we handle <em>abandoned</em> e
 
 Well, here the results of the experiments were not very spectacular. Any form of regularization (be it entropy, Kullback-Leibler divergence between the unit Gaussian and the policy action distribution, reverse KL divergence between the target and behavioural policy) does not help much. But we have to keep in mind, that all the agents were trained with the PPO loss, which already enforces the trust region. This means that it already incorporates a certain form of regularization.
 
-# Conclusions
+## Conclusions
 
 **I am really happy that there are people who are looking into "practical" aspects of deep RL such as reproducibility or good engineering practices**. It's great that researchers are looking for some general rules which may hold true for majority of problems and could be used to accelerate deep RL prototyping. **I would like to conclude this write-up with one, crucial critique of the publication**: the authors have been conducting this study for a very limited set of benchmark environments. All of them assume state and observation space to be 1D vectors and they all can be "solved" using MLP-based networks. I wonder if some of those learnings are also valid for more complex tasks, be it multi-agent settings or agents which deal with large state spaces (e.g work with multimodal camera input)?

@@ -1,21 +1,18 @@
 ---
 layout: post
-crosspost_to_medium: true
+comments: true
 title: "Tutorial - Sequential Bayesian Learning - Linear Regression"
-author: "Damian Bogunowicz"
-categories: blog
-tags: [machine learning, tutorial, regression, Bayesian]
-image: sequential_bayes.jpg
-
+excerpt: "Step-by-step tutorial on sequential Bayesian learning, along with the accompanying code. I use linear regression using maximum likelihood estimation to obtain a probabilistic estimate of the parameters of the linear model."
+mathjax: true
 ---
 
 While I was tutoring some of my friends on the fundamentals of machine learning, I came across a particular topic in [Christopher M. Bishop's "Pattern Recognition and Machine Learning"](https://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738). In Chapter 3, the author gives a great, hands-on example of Bayesian Linear Regression. I have noticed that many students (including yours truly back in the days) struggle with in-depth understanding of this particular example of sequential Bayesian learning. I think it is one of the most eye-opening moments in the ML course to fully grasp what happens in that framework. I have learned that coding this particular example really helps with understanding the concept. This is why I have decided to present my approach on that particular challenge. 
 
 This example requires from the reader some basic machine learning knowledge, such as understanding of Bayes' theorem (here I can recommend a [very recent, excellent video by 3brown1blue](https://www.youtube.com/watch?v=HZGCoVF3YvM)), fundamentals of probability distribution or linear models. Once I have finished this blog post I have consulted my solution with a [similar notebook](https://github.com/zjost/bayesian-linear-regression/blob/master/src/bayes-regression.ipynb). While I personally think that my code is more elegant, one can refer to this work for more detailed theory.
 
-# Sequential Bayesian Linear Regression Tutorial
+## Sequential Bayesian Linear Regression Tutorial
 
-## The Goal of the Tutorial
+### The Goal of the Tutorial
 
 In our task, there is some function. We know, that this function is linear. Additionally, the function is also noisy. We may assume additive, Gaussian noise. Our goal is create a parametrized model 
 
@@ -46,11 +43,11 @@ p(t|\mathbf{x}, \mathbf{w}) = \mathcal{N}(t| y(\mathbf{x}, \mathbf{w}), \beta^{-
 $$
 
 
-## Prior, Likelihood and  Posterior
+### Prior, Likelihood and  Posterior
 
 To treat linear regression in a Bayesian framework, we need to define three key elements of the Bayes' theorem: prior, likelihood and the posterior.
 
-### Likelihood
+#### Likelihood
 
 Consider a data set of inputs $$\mathbf{X} = \{\mathbf{x}_1,\mathbf{x}_2,...,\mathbf{x}_N\}$$, with corresponding target values $$\mathbf{T} = \{t_1,t_2,...,t_N\}$$. Making the assumption that these data points are i.i.d (independent, identically distributed), we obtain the following expression for the likelihood function (which answers the question: how well function of parameters $$\mathbf{w}$$ explain data $$\mathcal{D} = (\mathbf{X}, \mathbf{T})$$):
 
@@ -59,7 +56,7 @@ p(\mathcal{D}|\mathbf{w})=\prod^{N}_{n=1}\mathcal{N}(t_n|\mathbf{w}^T\phi(\mathb
 $$
 
 
-### Prior
+#### Prior
 
 Our intermediate goal is to find parameter distribution $$\mathbf{w}$$, which is going to be as close as possible to the target coefficients $$a_0$$ and $$a_1$$. Initially, we know very little about the distribution. However, we may assume a conjugate prior to the likelihood function. Thus, in general the prior, will be also a Gaussian distribution.
 
@@ -73,7 +70,7 @@ $$
 p(\mathbf{w})=\mathcal{N}(\mathbf{w}|\mathbf{0}, \alpha^{-1}\mathbf{I})
 $$
 
-### Posterior
+#### Posterior
 
 Finally we may compute the posterior, which is proportional to the product of the likelihood function and the prior.
 
@@ -93,9 +90,9 @@ $$
 
 where $$\mathbf{\Phi}$$ is a design matrix computed from the input data $$\mathbf{X}$$. 
 
-## Worked example
+### Worked example
 
-### Experimental Setup 
+#### Experimental Setup 
 
 The constructor shows the experimental setup. We define precision parameters $$\alpha=2$$ and $$\beta=25$$, as well as the coefficients of the "unknown", target, linear function:
 
@@ -123,7 +120,7 @@ Finally, the prior distribution is being computed. For all the probability-relat
         self.prior_distribution = tfd.MultivariateNormalFullCovariance(loc=self.prior_mean, covariance_matrix=self.prior_cov)
 ```
 
-### Linear Function
+#### Linear Function
 
 Linear function method is used to generate synthetic data from the "unknown", target function.
 
@@ -144,7 +141,7 @@ Linear function method is used to generate synthetic data from the "unknown", ta
             return self.a_0 + self.a_1 * X
 ```
 
-### Calculating a Design Matrix
+#### Calculating a Design Matrix
 
 A design matrix is a matrix containing data about multiple characteristics of several individuals or objects. It is $$N\times M$$ matrix, where rows are equal to the number of samples and columns to the number of features. In our particular example, the design matrix will have two columns and a variable number of rows. The first column corresponds to the $$w_0$$ parameters and is a vector of ones. The second column corresponds to the $$w_1$$ and contains vector $$[\phi_1(\mathbf{x}_1), \phi_1(\mathbf{x}_2), ..., \phi_1(\mathbf{x}_N)]^T$$. Since we do not use any basis function, this simply boils down to $$[\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_N]^T$$.
 
@@ -163,7 +160,7 @@ A design matrix is a matrix containing data about multiple characteristics of se
         return design_mtx
 ```
 
-### Learning Step
+#### Learning Step
 
 This method performs the update step for the sequential learning. Once the posterior is computed, it becomes the prior for the next iteration (hence, **sequential** Bayesian learning!)
 
@@ -187,7 +184,7 @@ This method performs the update step for the sequential learning. Once the poste
         self.iteration += 1
 ```
 
-### Plotting the Prior/Posterior
+#### Plotting the Prior/Posterior
 
 This method plots a prior/posterior distribution in every iteration. Additionally, we mark the point $$(a_0, a_1)$$  to see how quickly the posterior converges to our solution.
 
@@ -214,7 +211,7 @@ This method plots a prior/posterior distribution in every iteration. Additionall
         plt.clf()
 ```
 
-### Plotting the Likelihood
+#### Plotting the Likelihood
 
 By analogy, we can also visualize the likelihood distribution. This answers the question: for the given batch of data, which parameters would best explain this data? I have already presented the likelihood equation. We can use it to compute log likelihood:
 
@@ -260,7 +257,7 @@ And use this equation to finally compute the likelihood distribution.
         plt.clf()
 ```
 
-### Predictive Distribution
+#### Predictive Distribution
 
 Finally, the goal of the Bayesian framework, estimating the uncertainty of the prediction! Recall the formula for predictive distribution:
 
@@ -273,13 +270,14 @@ This result is an integral of two terms: the model
 
 $$
 p(t|\mathbf{x},\mathbf{w})
-$$ 
+$$
 
 which uses a particular set of parameter values, and a posterior, the probability for these parameter values 
 
-$$p
-(\mathbf{w}|\mathcal{D})
-$$ 
+$$
+p(\mathbf{w}|\mathcal{D})
+$$
+
 
 This means, that the predictive distribution considers every possible parameter value. It evaluates the model that has those parameter values and then weights that result by the probability of having those parameter values in the first place.
 
@@ -294,7 +292,7 @@ $$
 $$
 
 $$
- \sigma^2 = \beta^{-1} + \phi(\mathbf{x})^T\mathbf{S}_N\phi(\mathbf{x})
+\sigma^2 = \beta^{-1} + \phi(\mathbf{x})^T\mathbf{S}_N\phi(\mathbf{x})
 $$
 
 We can use this information to compute mean of the corresponding Gaussian predictive distribution, as well as the standard deviation.
@@ -317,7 +315,7 @@ We can use this information to compute mean of the corresponding Gaussian predic
             prediction.append((predictive_mean, predictive_std))
         return prediction
 ```
-### Data Space Plotting Method
+#### Data Space Plotting Method
 
 Finally, we construct a method which plots the batch of upcoming data (blue points), confidence region of predictive distribution spanning one standard deviation either side of the mean (shaded, orange area), prediction mean (orange line) and target function (red line).
 
@@ -355,7 +353,7 @@ Finally, we construct a method which plots the batch of upcoming data (blue poin
         plt.savefig('Data_Space-{}.png'.format(self.iteration))
         plt.clf()
 ```
-### Main Code
+#### Main Code
 
 Now, the procedure is straightforward. We start knowing nothing - the initial prior. We sample fixed number of samples $$X$$ from uniform distribution, use those samples to obtain $$T$$. Next, we use $$(X,T)$$ to visualize likelihood function and the current quality of the model in the data space. Additionally we plot the prior distribution in parameter space. Finally, we use the batch of data $$(\mathbf{X}, \mathbf{Y})$$ to perform the sequential Bayesian update.
 
@@ -380,28 +378,31 @@ def run_sequential_bayes():
 
 
 
-## Experiments
+### Experiments
 
 I perform two experiments. Firstly, in every iteration I supply only one pair of input and target (samples_in_batch = 1). We can see that the posterior starts converging close to the goal coefficients around iteration 12. This is also reflected in the data space. That is when the predictive distribution mean is almost equal to the target function. Note, how confidence bounds tighten as we observe more samples. Interestingly, the likelihood function always resembles a "ray". Why is that so? Since we compute it only for one single sample $$(x_0, t_0)$$, any pair $$w_0$$, $$w_1$$, which satisfies the equation $$t_0 = w_0 + w_1x_0$$ is a good fit. This means, that the line, which describes those good fits can be rewritten as:
-
 $$
 w_0 = t_0 - w_1x_0
 $$
-
 And this is straight-line equation, responsible for the "ray" shape.
 
+<div class="imgcap">
 <img src="/assets/9/batch_1/Data_Space.gif" width="500"> 
 <img src="/assets/9/batch_1/Prior_Posterior.gif" width="500"> 
-<img src="/assets/9/batch_1/Likelihood.gif" width="500">  
+<img src="/assets/9/batch_1/Likelihood.gif" width="500"> 
+
+<div class="thecap"></div></div>
 
 Now, let's use larger batches of 50 input-target pairs (samples_in_batch = 50). The posterior converges to a good approximation much faster and the satisfying solution in data space emerges after 4 iterations. Note, that the likelihood is not "ray-shaped" anymore. This time the likelihood needs to take into the account not one but fifty points It is not surprise that the distribution of "good fit" parameters is much more narrow.
 
+<div class="imgcap">
 <img src="/assets/9/batch_50/Data_Space.gif" width="500"> 
 <img src="/assets/9/batch_50/Prior_Posterior.gif" width="500">
 <img src="/assets/9/batch_50/Likelihood.gif" width="500"> 
+<div class="thecap"></div></div>
 
 
-## Full Code 
+### Full Code 
 
 The full code can be found [here](https://github.com/dtransposed/dtransposed-blog-codes/blob/master/Sequential%20bayesian%20linear%20regression.py).
 

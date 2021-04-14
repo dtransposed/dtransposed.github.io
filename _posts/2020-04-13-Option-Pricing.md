@@ -1,12 +1,10 @@
 ---
 layout: post
-crosspost_to_medium: true
 title: "Option Pricing - Introduction, Example and Implementation"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [finance, options, algotrading]
-image: options.jpeg
-
+excerpt: "I introduce the concept of financial options, show their application in financial engineering and implement two option pricing models - Black-Scholes and Binomial Option Pricing models."
 ---
 
 ## Option Pricing: Introduction, History and Implementation 
@@ -27,7 +25,9 @@ Options can be used as as an "insurance" to your position. This strategy is also
 As of today, one share of TSLA is $545. At the same time, you purchase a put to insure the purchased stock. The strike price of the option should be at least greater than the amount you paid for the actual stock. For example, you buy put with a strike price of $550, with additional premium of $60 per share, which expires in four weeks. 
 
 We can plot the risk characteristics of such a strategy. 
+<div class="imgcap">
 <img src="/assets/10/blog_image1.png">
+<div class="thecap"></div></div>
 
 We can see that for a stock, the theoretical profit (and loss) are not bounded. Worst case scenario, you can simply loose all your money. Best case scenario, you may enjoy unlimited wealth increase. For a put, its is agreed upon that once the stock price falls below the strike price, you enjoy a linear profit (i.e you bet on stock price plummeting). If the stock price rises above the strike price, you may choose not to excercise the option and loose nothing. Of course, this kind of free, wonderful insurance is too good to be true in reality. That is why investors pay substantial premiums for the insurance - in this particular case, the premium amounts to mind-boggling 11%. As a result, the curve is shifted downwards by the premium price. 
 
@@ -93,7 +93,9 @@ From the model we are able to calculate the price of an option based on a number
 
 Finally, $$N(.)$$ is cumulative distribution function.
 
+<div class="imgcap">
 <img src="/assets/10/test.png">
+<div class="thecap"></div></div>
 
 Let's scrutinize two stocks with very different characteristics - volatile, young Tesla and steady, blue chip - Coca-Cola. As shown on the diagram above, there is little dispersion in the price of Coca-Cola. Tesla, on the contrary, is one of the hottest and most volatile stocks of the recent years. Please note that my results may be very particular. Due to the current situation on the markets, most of the stocks are characterised by unusually high volatility. At the same time, we are naturally experiencing very low interest rates. The options chosen are calls. The price of the premium is neglected, as well as the fact that KO pays regular dividends.
 
@@ -112,10 +114,10 @@ INFO:root:
  The call matures in 60 days.
 
 ```
-
+<div class="imgcap">
 <img src="/assets/10/ezgif.com-gif-maker-11.gif"> 
-
 <img src="/assets/10/ezgif.com-gif-maker-13.gif">
+<div class="thecap"></div></div>
 
 Both plots tell us, how the function $$V(S,t)$$ behaves for a given pair of variables. One can observe that, for fixed $$t$$,  the price of the option increases as the stock price increases. This makes sense, since it is increasingly more likely to expire with a positive value. Also, for fixed $$S$$ and decreasing $$t$$ (meaning we are approaching maturity), the call becomes worth less and less, since its value at expiration is become more and more certain. This means that the more volatility an option has, the more expensive it is. Why? Uncertainties are costly. Since costs raise prices, and volatility is an uncertainty, volatility raises prices.
 
@@ -135,13 +137,17 @@ $$
 
 And $$u$$ and $$d$$ are specific factors of the asset price moving move up or down. Those can be deduced from the implied or historical volatility.
 
+<div class="imgcap">
 <img src="/assets/10/ezgif.com-gif-maker-10.gif"> 
-
 <img src="/assets/10/ezgif.com-gif-maker-12.gif">
+<div class="thecap"></div></div>
 
 As shown below, BOPM provides a good, discrete approximation to the Black-Scholes model.
 
-<img src="/assets/10/bi_59.png" width="300"> <img src="/assets/10/bs_59.png" width="300">
+<div class="imgcap">
+<img src="/assets/10/bi_59.png" width="300"> 
+<img src="/assets/10/bs_59.png" width="300">
+<div class="thecap"></div></div>
 
 ## Additional Reading
 1. The Man Who Solved the Market: How Jim Simons Launched the Quant Revolution, Gregory Zuckerman
