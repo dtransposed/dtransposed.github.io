@@ -147,9 +147,15 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 /* KaTeX */
 /* ----------------------------------------------------------*/
 .katex * {
-    font-size: 0.99em;
+    font-size: 0.98em;
     line-height: 1.2;
 }
+.katex-display>.katex>.katex-html {
+    display: block;
+    position: relative;
+    overflow: auto;
+}
+
 
 /* Home styles */
 /* ----------------------------------------------------------*/
