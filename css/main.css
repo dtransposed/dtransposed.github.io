@@ -54,12 +54,12 @@ a:hover   { color: #6c757d; text-decoration: underline; }
   font-size: 26px;
   letter-spacing: -1px;
   float: left;
-  line-height: 60px;
+  line-height: 30px;
   position: relative;
   z-index: 1;
   font-weight: 600;
   margin-top: 14px;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .site-subtitle,
@@ -73,7 +73,9 @@ a:hover   { color: #6c757d; text-decoration: underline; }
     line-height: 13px;
     position: relative;
     font-weight: 300;
-    margin-left: 10px;
+    margin-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
