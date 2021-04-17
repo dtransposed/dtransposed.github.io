@@ -240,10 +240,10 @@ Here, I feel pretty comfortable with estimating each velocity separately. A car 
 Finally, we can compute the drag energy ratio:
 
 $$
-\frac{E_{plane}}{E_{car}} = \frac{1}{2} \cdot 12 \cdot (10)^2 = 450
+\frac{E_{plane}}{E_{car}} = \frac{1}{2} \cdot 9 \cdot (10)^2 = 450
 $$
 
-Given the common knowledge, that the fuel efficiency of a car and plane, per passenger, are roughly the same, I am pretty happy with this estimate. A car needs one "unit" of energy per person (assuming an average person drives to and from work alone). Conversely, a plane, which carries about 500 people, needs approximately one unit of energy per person as well.
+Given the common knowledge, that the fuel efficiency of a car and plane, per passenger, are roughly the same, I am pretty happy with this estimate. A car needs one "unit" of energy per person (assuming an average person drives to and from work alone). Conversely, a plane, which carries about 450 people, needs approximately one unit of energy per person as well.
 
 Notice how **divide-and-conquer**, as well reasoning from first principles, were efficiently utilised in this analysis as well!
 
@@ -413,13 +413,13 @@ $$
 E_\text{demanded} \propto m_\text{body}h
 $$
 
-Energy supplied is the maximum amount of energy an animal can generate using its muscles. This energy is simply a product of the muscle mass $$m_\text{muscle}$$ and the muscle energy density. Note that we are introducing another simplification: we treat all different muscles in the animal's body as one, homogenous tissue: all the muscles contribute equally to the jump. We can go even further and say that the muscle energy density is the same for all the living creatures. Some might say that this is too much of a simplification, but my guts tells me otherwise: all muscles use similar "biological technology". They have similar organic composition so why not treat them (approximately) equally? This assumption allows for consider the muscle energy density as constant so:
+Energy supplied is the maximum amount of energy an animal can generate using its muscles. This energy is simply a product of the muscle mass $$m_\text{muscle}$$ and the muscle energy density. Note that we are introducing another simplification: we treat all different muscles in the animal's body as one, homogenous tissue: all the muscles contribute equally to the jump. We can go even further and say that the muscle energy density is the same for all the living creatures. Some might say that this is too much of a simplification, but my guts tells me otherwise: all muscles use similar "biological technology". They have similar organic composition so why not treat them (approximately) equally? This assumption allows to consider the muscle energy density as constant so:
 
 $$
 E_\text{supplied} \propto m_\text{muscle} \cdot \text{energy density}_\text{muscle} \propto m_\text{muscle}
 $$
 
-Neat. The next question is what is the relationship between the muscle mass $$m_\text{muscle}$$ and body mass $$m_\text{body}$$? My guts tells me that this quantity does not only depends on the type of an animal (I would be surprised if this ratio was the same for a bull and a pig), but also on the age and gender (it would be different for an athletic male adult versus an old woman). 
+Neat. The next question is what is the relationship between the muscle mass $$m_\text{muscle}$$ and body mass $$m_\text{body}$$? My guts tells me that this quantity does not only depend on the type of an animal (I would be surprised if this ratio was the same for a bull and a pig), but also on the age and gender (it would be different for an athletic male adult versus an old woman). 
 
 Once again, let's simplify and throw away this information - treat the ratio as a constant. Yes, on hand we assume (courageously) that all animals have the same muscle to body mass ratio, but on the other hand we get to peel off the next layer of complexity.
 
@@ -522,10 +522,9 @@ We have already established, that the nature likes equilibria. If you swing a sy
 
 Most engineering students at some point encounter the quantity known as Young's modulus. It is a fundamental property of every material, which describes its stiffness - how easily it bends or stretches. However it is not directly visible, how every material can be envisioned as a huge set of tiny springs and masses.
 
-<p align="center">
+<div class="imgcap">
  <img src="/assets/13/image11.png" alt="image11" style="zoom:20%;" />
-</p>
-<em> Image source:  "The Art of Insight in Science and Engineering: Mastering Complexity"</em>
+<div class="thecap"></div></div>Image source:  "The Art of Insight in Science and Engineering: Mastering Complexity"</div></div>
 
 Young's modulus is a function of two values: stress (the force applied to a material, divided by the its cross-sectional area) and strain (deformation of material that results from an applied stress).
 
@@ -535,15 +534,15 @@ $$
 
 While stress is straightforward to compute (using force applied and the cross-section of the block of material, $$\text{stress} = \frac{F}{A}$$), it can be quite difficult to compute material's strain. However, we can easily estimate it through modelling a block of material as a system of springs and masses. Imagine that a block of material is in fact a bundle of tiny, elastic fibres. 
 
-<p align="center">
+<div class="imgcap">
  <img src="/assets/13/image12.png" alt="image11" style="zoom:20%;" />
-</p>
+<div class="thecap"></div></div>
 
 Each fibre is a chain (series) of springs (bonds) and masses (atoms). 
 
-<p align="center">
- <img src="/assets/13/image13.png" alt="image1" style="zoom:20%;" />
-</p>
+<div class="imgcap">
+ <img src="/assets/13/image13.png" alt="image11" style="zoom:20%;" />
+<div class="thecap"></div></div>
 
 Since strain is the fractional length change, the strain in the block is the strain in each fibre:
 
@@ -603,7 +602,7 @@ This is the result obtained from rough estimation. Now let's use **divide-and-co
 
 The height of Germany is a bit more than a distance between Hamburg and Munich. Having spent a lot of time travelling between those cities in the past, I know that it takes about 8 hours by car to cross Germany north to south. This implies the distance of 1200 kilometres. While I am not sure about the exact value, I think that it's not less than 800, but not more than 1500 kilometres. Once again, I attach probability of $$P\approx 2/3$$ to this statement.
 
-Germany is certainly longer than wider, so the width is less than the height. To travel from Hamburg to the Dutch border it takes about 5 hours or so. I am not really sure, but I bet that it is not less than 300, and not more than 600 kilometres. 
+Germany is certainly longer than wider, so the width is less than the height. To travel from Berlin to the Dutch border it takes about 5 hours or so. I am not really sure, but I bet that it is not less than 300, and not more than 600 kilometres. 
 
 $$
 h_\text{divide-and-conquer} = 800...1500 \text{ }[\text{km}]
@@ -647,8 +646,9 @@ Same applies for the width.
 <div class="imgcap">
 <img src="/assets/13/image_width_.png" width="80%"> 
   <div class="thecap"></div></div>
+Note, that one standard deviation, or one sigma, plotted above or below the average value on that normal distribution curve, elegantly defines a region that expresses (approximately) 2-to-1 odds.
 
-Now to find the area, we can combine those two distributions, which is equivalent of multiplying two point estimates - width and height.
+Now to find the area, we can combine those two distributions, which is the "probabilistic" equivalent of multiplying two point estimates - width and height.
 
 The mean is simply a product of geometric means:
 
