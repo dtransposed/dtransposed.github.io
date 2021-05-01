@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: "So You Want to Study Computer Science in Europe?"
+title: "So You Want to Study Computer Science (in Europe)?"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [career, computer science, education]
