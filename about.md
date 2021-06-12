@@ -9,7 +9,7 @@ includelink: true
 {: refdef}
 
 Engineer, roboticist, software developer and genuinely curious human being. Passionate about various flavors of machine learning, financial markets and psychology. 
-I dream about brave, new world where autonomous robots work hand in hand with humans.
+I dream about a brave, new world where autonomous robots work hand in hand with humans.
 - I hold a M.Sc degree in Robotics, Cognition and Intelligence from 
  <a href="url"><img src="https://www.eduopinions.com/wp-content/uploads/2017/10/Technical-University-of-Munich-–-TUM-logo.jpg" height="25px" style="border-radius:20%"></a> 
 - I was endowing cars with the ability to infer intentions at
