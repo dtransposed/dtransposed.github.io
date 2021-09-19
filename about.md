@@ -5,7 +5,7 @@ permalink: /about/
 includelink: true
 ---
 {:refdef: style="text-align: center;"}
-<a href="url"><img src="/assets/me_blog.jpg" height="300px" style="border-radius:20%"></a>
+<a href="url"><img src="/assets/me_blog1.jpg" height="300px" style="border-radius:20%"></a>
 {: refdef}
 
 Engineer, roboticist, software developer and genuinely curious human being. Passionate about various flavors of machine learning, financial markets and psychology. 
