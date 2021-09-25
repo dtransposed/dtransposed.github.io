@@ -10,6 +10,10 @@ The growing list of my projects and other pieces of work I was involved in.
 <div class="thecap">Cover image: <a href="https://www.kickstarter.com/projects/bryngjones/the-robot-uprising">The Robot Uprising</a> by Bryn G Jones.</div>
 </div>
 
+<em>__2021__</em>
+
+1. [__Talk: The Future of Car Manufacturing: What's the secret behind the world's coolest cars?__ ](https://www.youtube.com/watch?v=vbct3e3N_Fg&t=12273s)- at [BrainBar 2021](https://brainbar.com).
+
 <em>__2020__</em>
 
 1. [__Talk: Applying Sim2Real Transfer To Industrial Robots__ ](https://www.youtube.com/watch?v=1BG5pC8WbTE)- at [Data Science Summit 2020](https://dssconf.pl).
