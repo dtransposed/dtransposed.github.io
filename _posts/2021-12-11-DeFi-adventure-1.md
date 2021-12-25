@@ -172,4 +172,3 @@ And that's it! You can start your planning [decentralized F.I.R.E](https://coint
   <div class="thecap">My tiny liquidity pool has generated a fee of $0.01 over 24 hours. The road to financial independence is long, but as Einstein said: "Compound interest is the most powerful force in the universe!"</div></div>
 
 
-
