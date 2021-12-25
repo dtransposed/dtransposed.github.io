@@ -96,7 +96,7 @@ A deposit in USDT, contrary to other stablecoins, cannot be simultaneously used 
 
 Since Tether cannot be used as collateral and carries significant counterparty risk, fewer people are willing to deposit it. At the same time, USDT is the first stablecoin in operation (since 2014) and remains one of the most used coins with nearly 20 million transactions. We have simultaneously low supply and fairly high demand and that justifies high APY.
 
-Side note number one: I wonder what happens if one takes a loan in a currency that suddenly goes belly up (remember the recent [infamous rug-pulled on SQUID coin](https://www.washingtonpost.com/world/2021/11/02/squid-game-crypto-rug-pull/))? Since borrowing is quite similar to shorting an asset, this would probably mean free money I guess.
+Side note number one: I wonder what happens if one takes a loan in a currency that suddenly goes belly up (remember the recent [infamous rug-pull on SQUID coin](https://www.washingtonpost.com/world/2021/11/02/squid-game-crypto-rug-pull/))? Since borrowing is quite similar to shorting an asset, this would probably mean free money I guess.
 
 Side note number two: for an abnormal yield of 1000% check out the yield optimizer platform [Beefy.Finance](https://www.beefy.finance/).
 
