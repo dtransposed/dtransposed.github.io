@@ -52,8 +52,6 @@ Now, having some MATIC tokens to cover our gas fees, we jump right in into lendi
 
 I think it is safe to say that borrowing and lending money has been the cornerstone of the financial system, dating back to the origins of currencies and trade. Nowadays, most of us are also involved in lending (when we put our money in the savings account) or borrowing (taking a loan to pay off the house or paying the university tuition). Arguably the party which benefits the most is the banks. You can rarely hear somebody being happy with the interest rates on their savings account (which sometimes can be even negative) or with the conditions of their loan. But you can often hear that working in a bank is a good career path if one optimizes for a high salary and attractive bonuses. So DeFi offers the possibility to lend and borrow crypto without a middle man while ensuring trust between parties (using the blockchain and the logic of a smart contract).
 
-Zrzut ekranu 2021-12-15 o 17.10.32
-
 <div class="imgcap">
 <img src="/assets/15/Zrzut ekranu 2021-12-15 o 17.10.32.png" width="90%"> 
   <div class="thecap">Aave's dashboard shows the current lending and borrowing data.</div></div>
@@ -172,7 +170,7 @@ While UniSwap is certainly the most popular DEX (more than a quarter of all swap
 
 ## Summary
 
-This concludes my DeFi Adventure. I have to say, that now, having spent several weeks learning the basics of the DeFi, I am extremely curious about the details and nuances of the invention. I am frequently mesmerized by the ingenuity and "zero-to-one" thinking of some of the creators in this space. Finally, I also have to admit that the whole idea of being independent of the legacy financial system is very appealing for me. However, the DeFi world still has teething troubles, so it is wise to tread carefully. In the end:
+This concludes my DeFi Adventure. I have to say, that now, having spent several weeks learning the basics of the DeFi, I am extremely curious about the details and nuances of the invention. I am frequently mesmerized by the ingenuity and "zero-to-one" thinking of some of the creators in this space. Finally, I also have to admit that the whole idea of being independent of the legacy financial system is very appealing for me. However, the DeFi world still has teething troubles, so it is wise to tread carefully. I do not remember where I heard this quote, but it seems like a fitting, humorous conclusion of this series:
 
 > When a user steals from a bank - it is called a crime.
 >
