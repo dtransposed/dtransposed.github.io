@@ -13,7 +13,7 @@ The growing list of my projects and other pieces of work I was involved in.
 <em>__2023__</em>
 
 1. [__Talk: Damian Bogunowicz: Why GPU Clusters Don't Need to Go Brrr?__ ](https://www.youtube.com/watch?v=YtsW-VPqEnA)- at [PyConDE & PyData Berlin 2023](https://2023.pycon.de).
-2. 
+   
 <em>__2021__</em>
 
 1. [__Talk: The Future of Car Manufacturing: What's the secret behind the world's coolest cars?__ ](https://www.youtube.com/watch?v=ufQ6gIvkNvQ)- at [BrainBar 2021](https://brainbar.com).
