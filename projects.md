@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Projects
-permalink: /projects/
+title: Talks/Project
+permalink: /talks_projects/
 includelink: true
 ---
 The growing list of my projects and other pieces of work I was involved in.
@@ -10,9 +10,13 @@ The growing list of my projects and other pieces of work I was involved in.
 <div class="thecap">Cover image: <a href="https://www.kickstarter.com/projects/bryngjones/the-robot-uprising">The Robot Uprising</a> by Bryn G Jones.</div>
 </div>
 
+<em>__2023__</em>
+
+1. [__Talk: Damian Bogunowicz: Why GPU Clusters Don't Need to Go Brrr?__ ](https://www.youtube.com/watch?v=YtsW-VPqEnA)- at [PyConDE & PyData Berlin 2023](https://2023.pycon.de).
+2. 
 <em>__2021__</em>
 
-1. [__Talk: The Future of Car Manufacturing: What's the secret behind the world's coolest cars?__ ](https://www.youtube.com/watch?v=vbct3e3N_Fg&t=12273s)- at [BrainBar 2021](https://brainbar.com).
+1. [__Talk: The Future of Car Manufacturing: What's the secret behind the world's coolest cars?__ ](https://www.youtube.com/watch?v=ufQ6gIvkNvQ)- at [BrainBar 2021](https://brainbar.com).
 
 <em>__2020__</em>
 
