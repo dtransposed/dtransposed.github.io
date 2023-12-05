@@ -9,6 +9,8 @@ excerpt: "Remote work is a video game that pays. However, on a serious note, rem
 
 ---
 
+Edit: Glad to see that this blog post got a lot of attention on Hackernews. See the related discussion [here](https://news.ycombinator.com/item?id=38161997)
+
 <div class="imgcap">
 <img src="/assets/17/1.png" width="50%"> 
   <div class="thecap">The original tweet by Sahil Lavingia</div></div>
