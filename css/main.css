@@ -28,10 +28,11 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 .wrap:after { clear: both; }
 .wrap {
   max-width: 800px;
-  padding: 0 30px;
+  padding: 0 0 0 30px;
   margin: 0 auto;
   zoom: 1;
   padding-top: 10px;
+  position: relative;
 }
 
 /* Layout Styles */
@@ -81,7 +82,12 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 
 .site-nav {
   float: right;
-  line-height: 40px;
+  line-height: 56px;
+  margin-top: auto;
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
 }
 
 .site-nav .menu-icon { display: none; }
@@ -129,7 +135,7 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 .github-icon-svg,
 .email-icon-svg,
 .linkedin-icon-svg,
-.twitter-icon-svg {
+.x-icon-svg {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -474,3 +480,21 @@ th, td {
     margin: 0 0 15px; }
 
 }
+
+.fa-x {
+  padding: 5px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+}
+
+.fa-x:hover {
+  color: #000000;
+}
+
+
+
+
+
