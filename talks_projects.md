@@ -2,7 +2,7 @@
 layout: page
 title: Talks/Project
 permalink: /talks_projects/
-includelink: true
+includelink: false
 ---
 The growing list of my projects and other pieces of work I was involved in.
 <div class="imgcap">
