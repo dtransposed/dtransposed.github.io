@@ -1,0 +1,37 @@
+@media screen and (max-width: 600px) {
+  .wrap { padding: 0 12px; }
+
+  .site-nav {
+    position: absolute;
+    z-index: 10;
+    top: 14px;
+    right: 8px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+
+  .site-nav .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .site-nav.nav-open .trigger {
+    display: block;
+  }
+
+  .site-nav .page-link {
+    display: block;
+    text-align: right;
+    line-height: 1.25;
+    padding: 10px 15px;
+    margin: 0;
+  }
+}
