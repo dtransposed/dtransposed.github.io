@@ -129,7 +129,7 @@ a:hover   { color: #6c757d; text-decoration: underline; }
 .github-icon-svg,
 .email-icon-svg,
 .linkedin-icon-svg,
-.twitter-icon-svg {
+.x-icon-svg {
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -474,3 +474,4 @@ th, td {
     margin: 0 0 15px; }
 
 }
+

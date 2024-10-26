@@ -331,7 +331,7 @@ pre {
 	color: #f39c12;
 }
 
-.fa-twitter {
+.fa-x{
   padding: 5px;
 	-o-transition:.5s;
   	-ms-transition:.5s;
@@ -340,7 +340,7 @@ pre {
   	transition: .5s;
 }
 
-.fa-twitter:hover {
+.fa-x:hover {
 	color: #00aced;
 }
 
