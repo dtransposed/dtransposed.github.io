@@ -10,6 +10,9 @@ comments: true
   </header>
 
   <article class="post-content">
+  {% if page.interactive_monaco_run %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  {% endif %}
   {{ content }}
   {% include disqus.html %}
   </article>
@@ -17,6 +20,11 @@ comments: true
   <!-- mathjax -->
   {% if page.mathjax %}
   <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {% endif %}
+  {% if page.interactive_monaco_run %}
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="{{ '/assets/js/monaco-run-widget.js' | prepend: site.baseurl }}"></script>
   {% endif %}
 
   
