@@ -475,3 +475,71 @@ th, td {
 
 }
 
+/* Monaco run widget */
+.monaco-run-widget {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fdfefe;
+  padding: 14px;
+  margin: 14px 0 28px;
+}
+
+.monaco-widget-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.monaco-widget-map,
+.monaco-widget-timeseries {
+  width: 100%;
+  min-height: 370px;
+  border-radius: 8px;
+  border: 1px solid #dce3ea;
+  background: #fff;
+}
+
+.monaco-widget-map {
+  min-height: 430px;
+}
+
+.monaco-widget-readout {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: #374151;
+}
+
+.monaco-widget-readout span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.monaco-widget-readout strong {
+  color: #111827;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+  .monaco-widget-map,
+  .monaco-widget-timeseries {
+    min-height: 300px;
+  }
+
+  .monaco-widget-readout {
+    gap: 6px;
+  }
+
+  .monaco-widget-readout span {
+    width: calc(50% - 3px);
+    justify-content: space-between;
+  }
+}
