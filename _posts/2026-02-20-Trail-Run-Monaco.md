@@ -5,7 +5,7 @@ title: "Running Log: Trail du Mont Agel"
 author: "Damian Bogunowicz"
 categories: blog
 tags: [running, fitness, data]
-excerpt: "On 14.02.2026 I ran my longest trail race: [Trail du Mont Agel](https://www.monacorun.com/trail-du-mont-agel/) in Monaco. I expected a picturesque and exciting, yet challenging, adventure. The distance was 30 km, with 1,500 meters of elevation gain and then 1,500 meters down."
+excerpt: "On 14.02.2026 I ran my longest trail race: Trail du Mont Agel in Monaco. I expected a picturesque and exciting, yet challenging, adventure. The distance was 30 km, with 1,500 meters of elevation gain and then 1,500 meters down."
 interactive_monaco_run: true
 
 ---
@@ -77,5 +77,4 @@ When I finally reached Monaco, I realized, surprisingly, that there were no runn
 2. The organizers were very strict about mandatory gear and explicitly warned that random checks would take place. This made me pack quite a bit of heavy equipment (e.g., yet another Gore-Tex jacket or even a freeze-dried meal (?!)) that realistically I would never use. Next time, I should be more critical of the contents of my vest.
 3. During the second half of the race, I realized that some runners weren’t using trekking poles at all. I had the impression they struggled, especially on the final uphill sections. I used my poles even on the smallest climbs. This allowed me to maintain my pace and rhythm despite the slight inconvenience of taking them out, assembling them, and then folding and holstering them again. Maybe investing in a proper quiver would make this process more comfortable.
 4. Trail running is amazing, I should start running [UTMB Index races](https://utmb.world), should be a great addition to the rudimentary flat city races I’ve done so far.
-
 
